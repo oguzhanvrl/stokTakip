@@ -21,8 +21,22 @@ Tools:
  - SourceMonitor 3.5
  - Office 2016
  - TeamGantt
+ 
+ Project Requirements:
+ 
+ - Agreement
+ - Testing Plan Report
+ - Correct Requirement Planning
+ - Using Design Tool for GUI
+ - Good User Experience
+ - Using Software Architecture Styles/Patterns
+ - Successful at Black Box Tests
+ - Successful at Premade White Box Tests
+ - Correct Gantt Usage
+ - Successful at Kiviat and Block Histogram Graphs
+ - Correct Database Diagram
 
-Developed by two 3rd Grade Software Engineering students.
+Developed with C# .NET Entity Framework by two 3rd Grade Software Engineering students.
  - Oğuzhan VAROL 	- 162804008
  - Tarık KÖPRÜLÜ	    - 152804016
  

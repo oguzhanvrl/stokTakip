@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="StokDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="AtikKontrol">
+    <Key>
+      <PropertyRef Name="atikID" />
+    </Key>
+    <Property Name="atikID" Type="Int32" Nullable="false" />
+    <Property Name="atikAktif" Type="Boolean" />
+    <Property Name="zimmetID" Type="Int32" />
+    <Property Name="atikNot" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Bolumler">
+    <Key>
+      <PropertyRef Name="bolumID" />
+    </Key>
+    <Property Name="bolumID" Type="Int32" Nullable="false" />
+    <Property Name="bolumAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="bolumSefID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Islemler">
+    <Key>
+      <PropertyRef Name="islemID" />
+    </Key>
+    <Property Name="islemID" Type="Int32" Nullable="false" />
+    <Property Name="islemTurID" Type="Int32" />
+    <Property Name="perID" Type="Int32" />
+    <Property Name="islemRefID" Type="Int32" />
+    <Property Name="islemTarih" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="IslemTur">
+    <Key>
+      <PropertyRef Name="islemTurID" />
+    </Key>
+    <Property Name="islemTurID" Type="Int32" Nullable="false" />
+    <Property Name="islemTuru" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="islemTurBilgi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Kullanici">
+    <Key>
+      <PropertyRef Name="perID" />
+    </Key>
+    <Property Name="perID" Type="Int32" Nullable="false" />
+    <Property Name="kullaniciAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="kullaniciSifre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Personel">
+    <Key>
+      <PropertyRef Name="perID" />
+    </Key>
+    <Property Name="perID" Type="Int32" Nullable="false" />
+    <Property Name="perIsim" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="perTCNo" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+    <Property Name="perTipID" Type="Int32" />
+    <Property Name="bolumID" Type="Int32" />
+    <Property Name="perAktif" Type="Boolean" />
+    <Property Name="perIseGiris" Type="DateTime" Precision="0" />
+    <Property Name="perIsCikis" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="PersonelTip">
+    <Key>
+      <PropertyRef Name="perTipID" />
+    </Key>
+    <Property Name="perTipID" Type="Int32" Nullable="false" />
+    <Property Name="perTipAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="SatinAlma">
+    <Key>
+      <PropertyRef Name="saID" />
+    </Key>
+    <Property Name="saID" Type="Int32" Nullable="false" />
+    <Property Name="urunID" Type="Int32" />
+    <Property Name="saTarih" Type="DateTime" Precision="0" />
+    <Property Name="perID" Type="Int32" />
+    <Property Name="saBirimFiyat" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="saAdet" Type="Int32" />
+    <Property Name="saTedarikciFirma" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Stok">
+    <Key>
+      <PropertyRef Name="stokID" />
+    </Key>
+    <Property Name="stokID" Type="Int32" Nullable="false" />
+    <Property Name="stokAktif" Type="Boolean" />
+    <Property Name="urunID" Type="Int32" />
+    <Property Name="stokAdet" Type="Int32" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Urunler">
+    <Key>
+      <PropertyRef Name="urunID" />
+    </Key>
+    <Property Name="urunID" Type="Int32" Nullable="false" />
+    <Property Name="urunBilgi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="urunOzellik" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="urunTurID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="UrunTur">
+    <Key>
+      <PropertyRef Name="urunTurID" />
+    </Key>
+    <Property Name="urunTurID" Type="Int32" Nullable="false" />
+    <Property Name="urunTurAdi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Zimmet">
+    <Key>
+      <PropertyRef Name="zimmetID" />
+    </Key>
+    <Property Name="zimmetID" Type="Int32" Nullable="false" />
+    <Property Name="zimmetAktif" Type="Boolean" />
+    <Property Name="urunID" Type="Int32" />
+    <Property Name="perID" Type="Int32" />
+    <Property Name="zimmetTarih" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityContainer Name="StokDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AtikKontrols" EntityType="Self.AtikKontrol" />
+    <EntitySet Name="Bolumlers" EntityType="Self.Bolumler" />
+    <EntitySet Name="Islemlers" EntityType="Self.Islemler" />
+    <EntitySet Name="IslemTurs" EntityType="Self.IslemTur" />
+    <EntitySet Name="Kullanicis" EntityType="Self.Kullanici" />
+    <EntitySet Name="Personels" EntityType="Self.Personel" />
+    <EntitySet Name="PersonelTips" EntityType="Self.PersonelTip" />
+    <EntitySet Name="SatinAlmas" EntityType="Self.SatinAlma" />
+    <EntitySet Name="Stoks" EntityType="Self.Stok" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="Urunlers" EntityType="Self.Urunler" />
+    <EntitySet Name="UrunTurs" EntityType="Self.UrunTur" />
+    <EntitySet Name="Zimmets" EntityType="Self.Zimmet" />
+  </EntityContainer>
+</Schema>

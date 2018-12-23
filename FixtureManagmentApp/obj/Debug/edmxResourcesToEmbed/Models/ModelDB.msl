@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="StokDBModelStoreContainer" CdmEntityContainer="StokDBEntities">
+    <EntitySetMapping Name="AtikKontrols">
+      <EntityTypeMapping TypeName="StokDBModel.AtikKontrol">
+        <MappingFragment StoreEntitySet="AtikKontrol">
+          <ScalarProperty Name="atikID" ColumnName="atikID" />
+          <ScalarProperty Name="atikAktif" ColumnName="atikAktif" />
+          <ScalarProperty Name="zimmetID" ColumnName="zimmetID" />
+          <ScalarProperty Name="atikNot" ColumnName="atikNot" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Bolumlers">
+      <EntityTypeMapping TypeName="StokDBModel.Bolumler">
+        <MappingFragment StoreEntitySet="Bolumler">
+          <ScalarProperty Name="bolumID" ColumnName="bolumID" />
+          <ScalarProperty Name="bolumAdi" ColumnName="bolumAdi" />
+          <ScalarProperty Name="bolumSefID" ColumnName="bolumSefID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Islemlers">
+      <EntityTypeMapping TypeName="StokDBModel.Islemler">
+        <MappingFragment StoreEntitySet="Islemler">
+          <ScalarProperty Name="islemID" ColumnName="islemID" />
+          <ScalarProperty Name="islemTurID" ColumnName="islemTurID" />
+          <ScalarProperty Name="perID" ColumnName="perID" />
+          <ScalarProperty Name="islemRefID" ColumnName="islemRefID" />
+          <ScalarProperty Name="islemTarih" ColumnName="islemTarih" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IslemTurs">
+      <EntityTypeMapping TypeName="StokDBModel.IslemTur">
+        <MappingFragment StoreEntitySet="IslemTur">
+          <ScalarProperty Name="islemTurID" ColumnName="islemTurID" />
+          <ScalarProperty Name="islemTuru" ColumnName="islemTuru" />
+          <ScalarProperty Name="islemTurBilgi" ColumnName="islemTurBilgi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Kullanicis">
+      <EntityTypeMapping TypeName="StokDBModel.Kullanici">
+        <MappingFragment StoreEntitySet="Kullanici">
+          <ScalarProperty Name="perID" ColumnName="perID" />
+          <ScalarProperty Name="kullaniciAdi" ColumnName="kullaniciAdi" />
+          <ScalarProperty Name="kullaniciSifre" ColumnName="kullaniciSifre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Personels">
+      <EntityTypeMapping TypeName="StokDBModel.Personel">
+        <MappingFragment StoreEntitySet="Personel">
+          <ScalarProperty Name="perID" ColumnName="perID" />
+          <ScalarProperty Name="perIsim" ColumnName="perIsim" />
+          <ScalarProperty Name="perTCNo" ColumnName="perTCNo" />
+          <ScalarProperty Name="perTipID" ColumnName="perTipID" />
+          <ScalarProperty Name="bolumID" ColumnName="bolumID" />
+          <ScalarProperty Name="perAktif" ColumnName="perAktif" />
+          <ScalarProperty Name="perIseGiris" ColumnName="perIseGiris" />
+          <ScalarProperty Name="perIsCikis" ColumnName="perIsCikis" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PersonelTips">
+      <EntityTypeMapping TypeName="StokDBModel.PersonelTip">
+        <MappingFragment StoreEntitySet="PersonelTip">
+          <ScalarProperty Name="perTipID" ColumnName="perTipID" />
+          <ScalarProperty Name="perTipAdi" ColumnName="perTipAdi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SatinAlmas">
+      <EntityTypeMapping TypeName="StokDBModel.SatinAlma">
+        <MappingFragment StoreEntitySet="SatinAlma">
+          <ScalarProperty Name="saID" ColumnName="saID" />
+          <ScalarProperty Name="urunID" ColumnName="urunID" />
+          <ScalarProperty Name="saTarih" ColumnName="saTarih" />
+          <ScalarProperty Name="perID" ColumnName="perID" />
+          <ScalarProperty Name="saBirimFiyat" ColumnName="saBirimFiyat" />
+          <ScalarProperty Name="saAdet" ColumnName="saAdet" />
+          <ScalarProperty Name="saTedarikciFirma" ColumnName="saTedarikciFirma" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Stoks">
+      <EntityTypeMapping TypeName="StokDBModel.Stok">
+        <MappingFragment StoreEntitySet="Stok">
+          <ScalarProperty Name="stokID" ColumnName="stokID" />
+          <ScalarProperty Name="stokAktif" ColumnName="stokAktif" />
+          <ScalarProperty Name="urunID" ColumnName="urunID" />
+          <ScalarProperty Name="stokAdet" ColumnName="stokAdet" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="StokDBModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Urunlers">
+      <EntityTypeMapping TypeName="StokDBModel.Urunler">
+        <MappingFragment StoreEntitySet="Urunler">
+          <ScalarProperty Name="urunID" ColumnName="urunID" />
+          <ScalarProperty Name="urunBilgi" ColumnName="urunBilgi" />
+          <ScalarProperty Name="urunOzellik" ColumnName="urunOzellik" />
+          <ScalarProperty Name="urunTurID" ColumnName="urunTurID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UrunTurs">
+      <EntityTypeMapping TypeName="StokDBModel.UrunTur">
+        <MappingFragment StoreEntitySet="UrunTur">
+          <ScalarProperty Name="urunTurID" ColumnName="urunTurID" />
+          <ScalarProperty Name="urunTurAdi" ColumnName="urunTurAdi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Zimmets">
+      <EntityTypeMapping TypeName="StokDBModel.Zimmet">
+        <MappingFragment StoreEntitySet="Zimmet">
+          <ScalarProperty Name="zimmetID" ColumnName="zimmetID" />
+          <ScalarProperty Name="zimmetAktif" ColumnName="zimmetAktif" />
+          <ScalarProperty Name="urunID" ColumnName="urunID" />
+          <ScalarProperty Name="perID" ColumnName="perID" />
+          <ScalarProperty Name="zimmetTarih" ColumnName="zimmetTarih" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

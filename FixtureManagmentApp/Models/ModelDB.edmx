@@ -1,0 +1,445 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="StokDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AtikKontrol">
+          <Key>
+            <PropertyRef Name="atikID" />
+          </Key>
+          <Property Name="atikID" Type="int" Nullable="false" />
+          <Property Name="atikAktif" Type="bit" />
+          <Property Name="zimmetID" Type="int" />
+          <Property Name="atikNot" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Bolumler">
+          <Key>
+            <PropertyRef Name="bolumID" />
+          </Key>
+          <Property Name="bolumID" Type="int" Nullable="false" />
+          <Property Name="bolumAdi" Type="nvarchar" MaxLength="50" />
+          <Property Name="bolumSefID" Type="int" />
+        </EntityType>
+        <EntityType Name="Islemler">
+          <Key>
+            <PropertyRef Name="islemID" />
+          </Key>
+          <Property Name="islemID" Type="int" Nullable="false" />
+          <Property Name="islemTurID" Type="int" />
+          <Property Name="perID" Type="int" />
+          <Property Name="islemRefID" Type="int" />
+          <Property Name="islemTarih" Type="date" />
+        </EntityType>
+        <EntityType Name="IslemTur">
+          <Key>
+            <PropertyRef Name="islemTurID" />
+          </Key>
+          <Property Name="islemTurID" Type="int" Nullable="false" />
+          <Property Name="islemTuru" Type="nvarchar" MaxLength="50" />
+          <Property Name="islemTurBilgi" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Kullanici">
+          <Key>
+            <PropertyRef Name="perID" />
+          </Key>
+          <Property Name="perID" Type="int" Nullable="false" />
+          <Property Name="kullaniciAdi" Type="nvarchar" MaxLength="50" />
+          <Property Name="kullaniciSifre" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Personel">
+          <Key>
+            <PropertyRef Name="perID" />
+          </Key>
+          <Property Name="perID" Type="int" Nullable="false" />
+          <Property Name="perIsim" Type="nvarchar" MaxLength="100" />
+          <Property Name="perTCNo" Type="nvarchar" MaxLength="11" />
+          <Property Name="perTipID" Type="int" />
+          <Property Name="bolumID" Type="int" />
+          <Property Name="perAktif" Type="bit" />
+          <Property Name="perIseGiris" Type="date" />
+          <Property Name="perIsCikis" Type="date" />
+        </EntityType>
+        <EntityType Name="PersonelTip">
+          <Key>
+            <PropertyRef Name="perTipID" />
+          </Key>
+          <Property Name="perTipID" Type="int" Nullable="false" />
+          <Property Name="perTipAdi" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="SatinAlma">
+          <Key>
+            <PropertyRef Name="saID" />
+          </Key>
+          <Property Name="saID" Type="int" Nullable="false" />
+          <Property Name="urunID" Type="int" />
+          <Property Name="saTarih" Type="date" />
+          <Property Name="perID" Type="int" />
+          <Property Name="saBirimFiyat" Type="money" />
+          <Property Name="saAdet" Type="int" />
+          <Property Name="saTedarikciFirma" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Stok">
+          <Key>
+            <PropertyRef Name="stokID" />
+          </Key>
+          <Property Name="stokID" Type="int" Nullable="false" />
+          <Property Name="stokAktif" Type="bit" />
+          <Property Name="urunID" Type="int" />
+          <Property Name="stokAdet" Type="int" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Urunler">
+          <Key>
+            <PropertyRef Name="urunID" />
+          </Key>
+          <Property Name="urunID" Type="int" Nullable="false" />
+          <Property Name="urunBilgi" Type="nvarchar" MaxLength="50" />
+          <Property Name="urunOzellik" Type="nvarchar(max)" />
+          <Property Name="urunTurID" Type="int" />
+        </EntityType>
+        <EntityType Name="UrunTur">
+          <Key>
+            <PropertyRef Name="urunTurID" />
+          </Key>
+          <Property Name="urunTurID" Type="int" Nullable="false" />
+          <Property Name="urunTurAdi" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Zimmet">
+          <Key>
+            <PropertyRef Name="zimmetID" />
+          </Key>
+          <Property Name="zimmetID" Type="int" Nullable="false" />
+          <Property Name="zimmetAktif" Type="bit" />
+          <Property Name="urunID" Type="int" />
+          <Property Name="perID" Type="int" />
+          <Property Name="zimmetTarih" Type="date" />
+        </EntityType>
+        <EntityContainer Name="StokDBModelStoreContainer">
+          <EntitySet Name="AtikKontrol" EntityType="Self.AtikKontrol" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Bolumler" EntityType="Self.Bolumler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Islemler" EntityType="Self.Islemler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="IslemTur" EntityType="Self.IslemTur" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Kullanici" EntityType="Self.Kullanici" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Personel" EntityType="Self.Personel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PersonelTip" EntityType="Self.PersonelTip" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SatinAlma" EntityType="Self.SatinAlma" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Stok" EntityType="Self.Stok" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Urunler" EntityType="Self.Urunler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UrunTur" EntityType="Self.UrunTur" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Zimmet" EntityType="Self.Zimmet" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="StokDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AtikKontrol">
+          <Key>
+            <PropertyRef Name="atikID" />
+          </Key>
+          <Property Name="atikID" Type="Int32" Nullable="false" />
+          <Property Name="atikAktif" Type="Boolean" />
+          <Property Name="zimmetID" Type="Int32" />
+          <Property Name="atikNot" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Bolumler">
+          <Key>
+            <PropertyRef Name="bolumID" />
+          </Key>
+          <Property Name="bolumID" Type="Int32" Nullable="false" />
+          <Property Name="bolumAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="bolumSefID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Islemler">
+          <Key>
+            <PropertyRef Name="islemID" />
+          </Key>
+          <Property Name="islemID" Type="Int32" Nullable="false" />
+          <Property Name="islemTurID" Type="Int32" />
+          <Property Name="perID" Type="Int32" />
+          <Property Name="islemRefID" Type="Int32" />
+          <Property Name="islemTarih" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="IslemTur">
+          <Key>
+            <PropertyRef Name="islemTurID" />
+          </Key>
+          <Property Name="islemTurID" Type="Int32" Nullable="false" />
+          <Property Name="islemTuru" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="islemTurBilgi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Kullanici">
+          <Key>
+            <PropertyRef Name="perID" />
+          </Key>
+          <Property Name="perID" Type="Int32" Nullable="false" />
+          <Property Name="kullaniciAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="kullaniciSifre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Personel">
+          <Key>
+            <PropertyRef Name="perID" />
+          </Key>
+          <Property Name="perID" Type="Int32" Nullable="false" />
+          <Property Name="perIsim" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="perTCNo" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+          <Property Name="perTipID" Type="Int32" />
+          <Property Name="bolumID" Type="Int32" />
+          <Property Name="perAktif" Type="Boolean" />
+          <Property Name="perIseGiris" Type="DateTime" Precision="0" />
+          <Property Name="perIsCikis" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="PersonelTip">
+          <Key>
+            <PropertyRef Name="perTipID" />
+          </Key>
+          <Property Name="perTipID" Type="Int32" Nullable="false" />
+          <Property Name="perTipAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="SatinAlma">
+          <Key>
+            <PropertyRef Name="saID" />
+          </Key>
+          <Property Name="saID" Type="Int32" Nullable="false" />
+          <Property Name="urunID" Type="Int32" />
+          <Property Name="saTarih" Type="DateTime" Precision="0" />
+          <Property Name="perID" Type="Int32" />
+          <Property Name="saBirimFiyat" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="saAdet" Type="Int32" />
+          <Property Name="saTedarikciFirma" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Stok">
+          <Key>
+            <PropertyRef Name="stokID" />
+          </Key>
+          <Property Name="stokID" Type="Int32" Nullable="false" />
+          <Property Name="stokAktif" Type="Boolean" />
+          <Property Name="urunID" Type="Int32" />
+          <Property Name="stokAdet" Type="Int32" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Urunler">
+          <Key>
+            <PropertyRef Name="urunID" />
+          </Key>
+          <Property Name="urunID" Type="Int32" Nullable="false" />
+          <Property Name="urunBilgi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="urunOzellik" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="urunTurID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="UrunTur">
+          <Key>
+            <PropertyRef Name="urunTurID" />
+          </Key>
+          <Property Name="urunTurID" Type="Int32" Nullable="false" />
+          <Property Name="urunTurAdi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Zimmet">
+          <Key>
+            <PropertyRef Name="zimmetID" />
+          </Key>
+          <Property Name="zimmetID" Type="Int32" Nullable="false" />
+          <Property Name="zimmetAktif" Type="Boolean" />
+          <Property Name="urunID" Type="Int32" />
+          <Property Name="perID" Type="Int32" />
+          <Property Name="zimmetTarih" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityContainer Name="StokDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AtikKontrols" EntityType="Self.AtikKontrol" />
+          <EntitySet Name="Bolumlers" EntityType="Self.Bolumler" />
+          <EntitySet Name="Islemlers" EntityType="Self.Islemler" />
+          <EntitySet Name="IslemTurs" EntityType="Self.IslemTur" />
+          <EntitySet Name="Kullanicis" EntityType="Self.Kullanici" />
+          <EntitySet Name="Personels" EntityType="Self.Personel" />
+          <EntitySet Name="PersonelTips" EntityType="Self.PersonelTip" />
+          <EntitySet Name="SatinAlmas" EntityType="Self.SatinAlma" />
+          <EntitySet Name="Stoks" EntityType="Self.Stok" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="Urunlers" EntityType="Self.Urunler" />
+          <EntitySet Name="UrunTurs" EntityType="Self.UrunTur" />
+          <EntitySet Name="Zimmets" EntityType="Self.Zimmet" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="StokDBModelStoreContainer" CdmEntityContainer="StokDBEntities">
+          <EntitySetMapping Name="AtikKontrols">
+            <EntityTypeMapping TypeName="StokDBModel.AtikKontrol">
+              <MappingFragment StoreEntitySet="AtikKontrol">
+                <ScalarProperty Name="atikID" ColumnName="atikID" />
+                <ScalarProperty Name="atikAktif" ColumnName="atikAktif" />
+                <ScalarProperty Name="zimmetID" ColumnName="zimmetID" />
+                <ScalarProperty Name="atikNot" ColumnName="atikNot" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Bolumlers">
+            <EntityTypeMapping TypeName="StokDBModel.Bolumler">
+              <MappingFragment StoreEntitySet="Bolumler">
+                <ScalarProperty Name="bolumID" ColumnName="bolumID" />
+                <ScalarProperty Name="bolumAdi" ColumnName="bolumAdi" />
+                <ScalarProperty Name="bolumSefID" ColumnName="bolumSefID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Islemlers">
+            <EntityTypeMapping TypeName="StokDBModel.Islemler">
+              <MappingFragment StoreEntitySet="Islemler">
+                <ScalarProperty Name="islemID" ColumnName="islemID" />
+                <ScalarProperty Name="islemTurID" ColumnName="islemTurID" />
+                <ScalarProperty Name="perID" ColumnName="perID" />
+                <ScalarProperty Name="islemRefID" ColumnName="islemRefID" />
+                <ScalarProperty Name="islemTarih" ColumnName="islemTarih" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IslemTurs">
+            <EntityTypeMapping TypeName="StokDBModel.IslemTur">
+              <MappingFragment StoreEntitySet="IslemTur">
+                <ScalarProperty Name="islemTurID" ColumnName="islemTurID" />
+                <ScalarProperty Name="islemTuru" ColumnName="islemTuru" />
+                <ScalarProperty Name="islemTurBilgi" ColumnName="islemTurBilgi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Kullanicis">
+            <EntityTypeMapping TypeName="StokDBModel.Kullanici">
+              <MappingFragment StoreEntitySet="Kullanici">
+                <ScalarProperty Name="perID" ColumnName="perID" />
+                <ScalarProperty Name="kullaniciAdi" ColumnName="kullaniciAdi" />
+                <ScalarProperty Name="kullaniciSifre" ColumnName="kullaniciSifre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Personels">
+            <EntityTypeMapping TypeName="StokDBModel.Personel">
+              <MappingFragment StoreEntitySet="Personel">
+                <ScalarProperty Name="perID" ColumnName="perID" />
+                <ScalarProperty Name="perIsim" ColumnName="perIsim" />
+                <ScalarProperty Name="perTCNo" ColumnName="perTCNo" />
+                <ScalarProperty Name="perTipID" ColumnName="perTipID" />
+                <ScalarProperty Name="bolumID" ColumnName="bolumID" />
+                <ScalarProperty Name="perAktif" ColumnName="perAktif" />
+                <ScalarProperty Name="perIseGiris" ColumnName="perIseGiris" />
+                <ScalarProperty Name="perIsCikis" ColumnName="perIsCikis" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PersonelTips">
+            <EntityTypeMapping TypeName="StokDBModel.PersonelTip">
+              <MappingFragment StoreEntitySet="PersonelTip">
+                <ScalarProperty Name="perTipID" ColumnName="perTipID" />
+                <ScalarProperty Name="perTipAdi" ColumnName="perTipAdi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SatinAlmas">
+            <EntityTypeMapping TypeName="StokDBModel.SatinAlma">
+              <MappingFragment StoreEntitySet="SatinAlma">
+                <ScalarProperty Name="saID" ColumnName="saID" />
+                <ScalarProperty Name="urunID" ColumnName="urunID" />
+                <ScalarProperty Name="saTarih" ColumnName="saTarih" />
+                <ScalarProperty Name="perID" ColumnName="perID" />
+                <ScalarProperty Name="saBirimFiyat" ColumnName="saBirimFiyat" />
+                <ScalarProperty Name="saAdet" ColumnName="saAdet" />
+                <ScalarProperty Name="saTedarikciFirma" ColumnName="saTedarikciFirma" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Stoks">
+            <EntityTypeMapping TypeName="StokDBModel.Stok">
+              <MappingFragment StoreEntitySet="Stok">
+                <ScalarProperty Name="stokID" ColumnName="stokID" />
+                <ScalarProperty Name="stokAktif" ColumnName="stokAktif" />
+                <ScalarProperty Name="urunID" ColumnName="urunID" />
+                <ScalarProperty Name="stokAdet" ColumnName="stokAdet" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="StokDBModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Urunlers">
+            <EntityTypeMapping TypeName="StokDBModel.Urunler">
+              <MappingFragment StoreEntitySet="Urunler">
+                <ScalarProperty Name="urunID" ColumnName="urunID" />
+                <ScalarProperty Name="urunBilgi" ColumnName="urunBilgi" />
+                <ScalarProperty Name="urunOzellik" ColumnName="urunOzellik" />
+                <ScalarProperty Name="urunTurID" ColumnName="urunTurID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UrunTurs">
+            <EntityTypeMapping TypeName="StokDBModel.UrunTur">
+              <MappingFragment StoreEntitySet="UrunTur">
+                <ScalarProperty Name="urunTurID" ColumnName="urunTurID" />
+                <ScalarProperty Name="urunTurAdi" ColumnName="urunTurAdi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Zimmets">
+            <EntityTypeMapping TypeName="StokDBModel.Zimmet">
+              <MappingFragment StoreEntitySet="Zimmet">
+                <ScalarProperty Name="zimmetID" ColumnName="zimmetID" />
+                <ScalarProperty Name="zimmetAktif" ColumnName="zimmetAktif" />
+                <ScalarProperty Name="urunID" ColumnName="urunID" />
+                <ScalarProperty Name="perID" ColumnName="perID" />
+                <ScalarProperty Name="zimmetTarih" ColumnName="zimmetTarih" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

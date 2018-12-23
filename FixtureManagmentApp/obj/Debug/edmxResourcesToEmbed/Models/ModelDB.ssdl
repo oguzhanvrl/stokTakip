@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="StokDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AtikKontrol">
+    <Key>
+      <PropertyRef Name="atikID" />
+    </Key>
+    <Property Name="atikID" Type="int" Nullable="false" />
+    <Property Name="atikAktif" Type="bit" />
+    <Property Name="zimmetID" Type="int" />
+    <Property Name="atikNot" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Bolumler">
+    <Key>
+      <PropertyRef Name="bolumID" />
+    </Key>
+    <Property Name="bolumID" Type="int" Nullable="false" />
+    <Property Name="bolumAdi" Type="nvarchar" MaxLength="50" />
+    <Property Name="bolumSefID" Type="int" />
+  </EntityType>
+  <EntityType Name="Islemler">
+    <Key>
+      <PropertyRef Name="islemID" />
+    </Key>
+    <Property Name="islemID" Type="int" Nullable="false" />
+    <Property Name="islemTurID" Type="int" />
+    <Property Name="perID" Type="int" />
+    <Property Name="islemRefID" Type="int" />
+    <Property Name="islemTarih" Type="date" />
+  </EntityType>
+  <EntityType Name="IslemTur">
+    <Key>
+      <PropertyRef Name="islemTurID" />
+    </Key>
+    <Property Name="islemTurID" Type="int" Nullable="false" />
+    <Property Name="islemTuru" Type="nvarchar" MaxLength="50" />
+    <Property Name="islemTurBilgi" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Kullanici">
+    <Key>
+      <PropertyRef Name="perID" />
+    </Key>
+    <Property Name="perID" Type="int" Nullable="false" />
+    <Property Name="kullaniciAdi" Type="nvarchar" MaxLength="50" />
+    <Property Name="kullaniciSifre" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Personel">
+    <Key>
+      <PropertyRef Name="perID" />
+    </Key>
+    <Property Name="perID" Type="int" Nullable="false" />
+    <Property Name="perIsim" Type="nvarchar" MaxLength="100" />
+    <Property Name="perTCNo" Type="nvarchar" MaxLength="11" />
+    <Property Name="perTipID" Type="int" />
+    <Property Name="bolumID" Type="int" />
+    <Property Name="perAktif" Type="bit" />
+    <Property Name="perIseGiris" Type="date" />
+    <Property Name="perIsCikis" Type="date" />
+  </EntityType>
+  <EntityType Name="PersonelTip">
+    <Key>
+      <PropertyRef Name="perTipID" />
+    </Key>
+    <Property Name="perTipID" Type="int" Nullable="false" />
+    <Property Name="perTipAdi" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="SatinAlma">
+    <Key>
+      <PropertyRef Name="saID" />
+    </Key>
+    <Property Name="saID" Type="int" Nullable="false" />
+    <Property Name="urunID" Type="int" />
+    <Property Name="saTarih" Type="date" />
+    <Property Name="perID" Type="int" />
+    <Property Name="saBirimFiyat" Type="money" />
+    <Property Name="saAdet" Type="int" />
+    <Property Name="saTedarikciFirma" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Stok">
+    <Key>
+      <PropertyRef Name="stokID" />
+    </Key>
+    <Property Name="stokID" Type="int" Nullable="false" />
+    <Property Name="stokAktif" Type="bit" />
+    <Property Name="urunID" Type="int" />
+    <Property Name="stokAdet" Type="int" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Urunler">
+    <Key>
+      <PropertyRef Name="urunID" />
+    </Key>
+    <Property Name="urunID" Type="int" Nullable="false" />
+    <Property Name="urunBilgi" Type="nvarchar" MaxLength="50" />
+    <Property Name="urunOzellik" Type="nvarchar(max)" />
+    <Property Name="urunTurID" Type="int" />
+  </EntityType>
+  <EntityType Name="UrunTur">
+    <Key>
+      <PropertyRef Name="urunTurID" />
+    </Key>
+    <Property Name="urunTurID" Type="int" Nullable="false" />
+    <Property Name="urunTurAdi" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Zimmet">
+    <Key>
+      <PropertyRef Name="zimmetID" />
+    </Key>
+    <Property Name="zimmetID" Type="int" Nullable="false" />
+    <Property Name="zimmetAktif" Type="bit" />
+    <Property Name="urunID" Type="int" />
+    <Property Name="perID" Type="int" />
+    <Property Name="zimmetTarih" Type="date" />
+  </EntityType>
+  <EntityContainer Name="StokDBModelStoreContainer">
+    <EntitySet Name="AtikKontrol" EntityType="Self.AtikKontrol" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Bolumler" EntityType="Self.Bolumler" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Islemler" EntityType="Self.Islemler" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="IslemTur" EntityType="Self.IslemTur" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Kullanici" EntityType="Self.Kullanici" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Personel" EntityType="Self.Personel" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PersonelTip" EntityType="Self.PersonelTip" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SatinAlma" EntityType="Self.SatinAlma" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Stok" EntityType="Self.Stok" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Urunler" EntityType="Self.Urunler" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UrunTur" EntityType="Self.UrunTur" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Zimmet" EntityType="Self.Zimmet" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

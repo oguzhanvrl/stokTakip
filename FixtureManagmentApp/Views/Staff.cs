@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Globalization;
 
 namespace FixtureManagmentApp.Views
 {
@@ -23,6 +24,7 @@ namespace FixtureManagmentApp.Views
             dateCikis.MaxDate = DateTime.Now;
             radioEkle.Checked = true;
             GridGuncelle();
+            gridPersonel.Columns[3].ValueType = typeof(bool);
             this.ControlBox = false;
         }
 
@@ -167,11 +169,11 @@ namespace FixtureManagmentApp.Views
         private void gridPersonel_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             txtAdSoyad.Text = gridPersonel.CurrentRow.Cells[0].Value.ToString();
-            cmbDepartman.SelectedValue =gridPersonel.CurrentRow.Cells[1].Value.ToString();
-            cmbPerTip.SelectedValue = gridPersonel.CurrentRow.Cells[2].Value.ToString();
+            cmbDepartman.SelectedItem =gridPersonel.CurrentRow.Cells[1].Value.ToString();
+            cmbPerTip.SelectedItem = gridPersonel.CurrentRow.Cells[2].Value.ToString();
             cbAktif.Checked = (bool)gridPersonel.CurrentRow.Cells[3].Value;
             dateGiris.Value = (DateTime)gridPersonel.CurrentRow.Cells[4].Value;
-            dateCikis.Value = (DateTime)gridPersonel.CurrentRow.Cells[5].Value;
+            //dateCikis.Value = (DateTime)gridPersonel.CurrentRow.Cells[5].Value;
             txtTC.Text = gridPersonel.CurrentRow.Cells[6].Value.ToString();
         }
     }

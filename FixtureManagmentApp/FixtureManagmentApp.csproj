@@ -64,7 +64,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\SatinAlmaController.cs" />
     <Compile Include="Controllers\StokController.cs" />
+    <Compile Include="Controllers\UrunController.cs" />
     <Compile Include="FormRestrictions\Authorization.cs" />
     <Compile Include="FormRestrictions\SpecialTextbox.cs" />
     <Compile Include="Models\AtikKontrol.cs">
@@ -125,6 +127,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\LoginView.cs" />
     <Compile Include="ViewModels\PersonelGridView.cs" />
+    <Compile Include="ViewModels\SatinAlmaGridView.cs" />
     <Compile Include="ViewModels\UrunGridView.cs" />
     <Compile Include="Views\Form1.cs">
       <SubType>Form</SubType>
@@ -149,6 +152,12 @@
     </Compile>
     <Compile Include="Views\Product.Designer.cs">
       <DependentUpon>Product.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Purchase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Purchase.Designer.cs">
+      <DependentUpon>Purchase.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Staff.cs">
       <SubType>Form</SubType>
@@ -176,6 +185,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Product.resx">
       <DependentUpon>Product.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Purchase.resx">
+      <DependentUpon>Purchase.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Staff.resx">
       <DependentUpon>Staff.cs</DependentUpon>

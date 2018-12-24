@@ -14,9 +14,11 @@ namespace FixtureManagmentApp.Views
     public partial class Product : MetroFramework.Forms.MetroForm
     {
         StokController stokController;
+        UrunController urunController;
         public Product()
         {
             stokController = new StokController();
+            urunController = new UrunController();
             InitializeComponent();
             radioEkle.Checked = true;
             this.ControlBox = false;
@@ -29,16 +31,7 @@ namespace FixtureManagmentApp.Views
             bool ekleChecked = radioEkle.Checked ? true : false;
             btnIslem.Text = ekleChecked ? "Ekle" : "Güncelle";
 
-            cmbUrunTuru.DataSource = stokController.UrunTipiListesi();
-
-            if (ekleChecked)
-            {
-               
-            }
-            else
-            {
-                
-            }
+            cmbUrunTuru.DataSource = urunController.UrunTipiListesi();
         }
 
         private void cbYeniUrunTuru_CheckedChanged(object sender, EventArgs e)
@@ -50,27 +43,30 @@ namespace FixtureManagmentApp.Views
         private void btnIslem_Click(object sender, EventArgs e)
         {
             bool ekleChecked = radioEkle.Checked ? true : false;
+            string urunTuru = cbYeniUrunTuru.Checked ? txtYeniUrunTuru.Text : cmbUrunTuru.Text;
+            string msg;
             if (ekleChecked)
             {
-                string urunTuru = cbYeniUrunTuru.Checked ? txtYeniUrunTuru.Text : cmbUrunTuru.Text;
-                string msg=stokController.UrunEkle(new ViewModels.UrunGridView { UrunAd = txtUrunAdi.Text, UrunOzellik = txtUrunOzellik.Text, UrunTur = urunTuru });
-                MetroFramework.MetroMessageBox.Show(this, msg, " ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                msg=urunController.UrunEkle(new ViewModels.UrunGridView { UrunAd = txtUrunAdi.Text, UrunOzellik = txtUrunOzellik.Text, UrunTur = urunTuru });      
             }
             else
             {
-                
+                msg = urunController.UrunGuncelle(new ViewModels.UrunGridView { UrunAd = txtUrunAdi.Text, UrunOzellik = txtUrunOzellik.Text, UrunTur = urunTuru });
             }
+            MetroFramework.MetroMessageBox.Show(this, msg, " ", MessageBoxButtons.OK, MessageBoxIcon.Information);
             GridGuncelle();
         }
 
         private void gridUrun_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            txtUrunAdi.Text = gridUrun.CurrentRow.Cells[0].Value.ToString();
+            txtUrunOzellik.Text = gridUrun.CurrentRow.Cells[2].Value.ToString();
+            cmbUrunTuru.SelectedItem = gridUrun.CurrentRow.Cells[1].Value.ToString();
         }
 
         void GridGuncelle()
         {
-            gridUrun.DataSource = stokController.UrunListesi();
+            gridUrun.DataSource = urunController.UrunListesi();
         }
     }
 }

@@ -41,3 +41,26 @@ C:\Users\Dell\Desktop\c#\Fixture\stokTakip\FixtureManagmentApp\obj\Debug\Fixture
 C:\Users\Dell\Desktop\c#\Fixture\stokTakip\FixtureManagmentApp\obj\Debug\FixtureManagmentApp.csproj.CopyComplete
 C:\Users\Dell\Desktop\c#\Fixture\stokTakip\FixtureManagmentApp\obj\Debug\FixtureManagmentApp.exe
 C:\Users\Dell\Desktop\c#\Fixture\stokTakip\FixtureManagmentApp\obj\Debug\FixtureManagmentApp.pdb
+C:\Users\MONSTER\Desktop\yazilim sinama proje\stokTakip\FixtureManagmentApp\bin\Debug\FixtureManagmentApp.exe.config
+C:\Users\MONSTER\Desktop\yazilim sinama proje\stokTakip\FixtureManagmentApp\bin\Debug\FixtureManagmentApp.exe
+C:\Users\MONSTER\Desktop\yazilim sinama proje\stokTakip\FixtureManagmentApp\bin\Debug\FixtureManagmentApp.pdb
+C:\Users\MONSTER\Desktop\yazilim sinama proje\stokTakip\FixtureManagmentApp\bin\Debug\EntityFramework.dll
+C:\Users\MONSTER\Desktop\yazilim sinama proje\stokTakip\FixtureManagmentApp\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\MONSTER\Desktop\yazilim sinama proje\stokTakip\FixtureManagmentApp\bin\Debug\MetroFramework.Design.dll
+C:\Users\MONSTER\Desktop\yazilim sinama proje\stokTakip\FixtureManagmentApp\bin\Debug\MetroFramework.dll
+C:\Users\MONSTER\Desktop\yazilim sinama proje\stokTakip\FixtureManagmentApp\bin\Debug\MetroFramework.Fonts.dll
+C:\Users\MONSTER\Desktop\yazilim sinama proje\stokTakip\FixtureManagmentApp\bin\Debug\EntityFramework.xml
+C:\Users\MONSTER\Desktop\yazilim sinama proje\stokTakip\FixtureManagmentApp\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\MONSTER\Desktop\yazilim sinama proje\stokTakip\FixtureManagmentApp\obj\Debug\FixtureManagmentApp.csprojAssemblyReference.cache
+C:\Users\MONSTER\Desktop\yazilim sinama proje\stokTakip\FixtureManagmentApp\obj\Debug\FixtureManagmentApp.Properties.Resources.resources
+C:\Users\MONSTER\Desktop\yazilim sinama proje\stokTakip\FixtureManagmentApp\obj\Debug\FixtureManagmentApp.Views.Form1.resources
+C:\Users\MONSTER\Desktop\yazilim sinama proje\stokTakip\FixtureManagmentApp\obj\Debug\FixtureManagmentApp.Views.Login.resources
+C:\Users\MONSTER\Desktop\yazilim sinama proje\stokTakip\FixtureManagmentApp\obj\Debug\FixtureManagmentApp.Views.MainScreen.resources
+C:\Users\MONSTER\Desktop\yazilim sinama proje\stokTakip\FixtureManagmentApp\obj\Debug\FixtureManagmentApp.Views.Product.resources
+C:\Users\MONSTER\Desktop\yazilim sinama proje\stokTakip\FixtureManagmentApp\obj\Debug\FixtureManagmentApp.Views.Staff.resources
+C:\Users\MONSTER\Desktop\yazilim sinama proje\stokTakip\FixtureManagmentApp\obj\Debug\FixtureManagmentApp.csproj.GenerateResource.cache
+C:\Users\MONSTER\Desktop\yazilim sinama proje\stokTakip\FixtureManagmentApp\obj\Debug\FixtureManagmentApp.csproj.CoreCompileInputs.cache
+C:\Users\MONSTER\Desktop\yazilim sinama proje\stokTakip\FixtureManagmentApp\obj\Debug\FixtureManagmentApp.csproj.CopyComplete
+C:\Users\MONSTER\Desktop\yazilim sinama proje\stokTakip\FixtureManagmentApp\obj\Debug\FixtureManagmentApp.exe
+C:\Users\MONSTER\Desktop\yazilim sinama proje\stokTakip\FixtureManagmentApp\obj\Debug\FixtureManagmentApp.pdb
+C:\Users\MONSTER\Desktop\yazilim sinama proje\stokTakip\FixtureManagmentApp\obj\Debug\FixtureManagmentApp.Views.Purchase.resources

@@ -8,6 +8,8 @@ namespace FixtureManagmentApp.ViewModels
 {
     public class PersonelGridView
     {
+        public int perID { get; set; }
+
         public string AdSoyad{ get; set; }
 
         public string Bölüm { get; set; }

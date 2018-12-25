@@ -41,6 +41,7 @@ namespace FixtureManagmentApp.Controllers
                         saTedarikciFirma = sa.Firma
                     };
                     stokDB.SatinAlmas.Add(p);
+                    StokController.Instance.StokGuncelle(p.urunID,sa.Adet);
                     stokDB.SaveChanges();
                     return "Satın alma işlemi tamamlandı.";
                 }
@@ -64,6 +65,7 @@ namespace FixtureManagmentApp.Controllers
                         try
                         {
                             p.urunID = UrunController.Instance.UrunIDBul(sa.Urun);
+                            StokController.Instance.StokGuncelle(p.urunID, sa.Adet - p.saAdet);
                             p.saAdet = sa.Adet;
                             p.saBirimFiyat = sa.BirimFiyat;
                             p.saTarih = sa.Tarih;

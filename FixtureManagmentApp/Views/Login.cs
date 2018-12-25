@@ -14,10 +14,10 @@ namespace FixtureManagmentApp.Views
 {
     public partial class Login : MetroFramework.Forms.MetroForm
     {
-        StokController stokController;
+        PersonelController stokController;
         public Login()
         {
-            stokController = new StokController();       
+            stokController = new PersonelController();       
             InitializeComponent();
             txtKullaniciAdi.Text = "admin";
             txtSifre .Text= "123456789";

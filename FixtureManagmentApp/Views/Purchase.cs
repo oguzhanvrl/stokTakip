@@ -42,6 +42,16 @@ namespace FixtureManagmentApp.Views
             bool ekleChecked = radioEkle.Checked ? true : false;
             btnIslem.Text = ekleChecked ? "Ekle" : "Güncelle";
             cmbUrunler.DataSource = SatinAlmaController.Instance.UrunListesi();
+            if (ekleChecked)
+            {
+                cmbUrunler.Enabled = true;
+                txtPer.Enabled = true;
+            }
+            else
+            {
+                cmbUrunler.Enabled = false;
+                txtPer.Enabled = false;
+            }
         }
 
         private void btnIslem_Click(object sender, EventArgs e)
@@ -83,7 +93,6 @@ namespace FixtureManagmentApp.Views
             txtBirimFiyat.Text = gridSatinAlma.CurrentRow.Cells[3].Value.ToString();
             txtAdet.Text = gridSatinAlma.CurrentRow.Cells[4].Value.ToString();
             txtFirma.Text = gridSatinAlma.CurrentRow.Cells[5].Value.ToString();
-            lblGID.Text = gridSatinAlma.CurrentRow.Cells[6].Value.ToString();
         }
     }
 }

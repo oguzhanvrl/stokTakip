@@ -72,7 +72,9 @@ namespace FixtureManagmentApp.Controllers
                         urunTurID = turID
                     };
                     stokDB.Urunlers.Add(p);
+                    StokController.Instance.StokGuncelle(p.urunID,0);
                     stokDB.SaveChanges();
+
                     return "Yeni ürün ekleme tamamlandı.";
                 }
             }

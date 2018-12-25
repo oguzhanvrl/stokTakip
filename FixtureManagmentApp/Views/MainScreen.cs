@@ -14,11 +14,11 @@ namespace FixtureManagmentApp.Views
 {
     public partial class MainScreen : MetroFramework.Forms.MetroForm
     {
-        StokController stokController;
+        PersonelController stokController;
         public MainScreen()
         {
             InitializeComponent();
-            stokController = new StokController();
+            stokController = new PersonelController();
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
         }
 

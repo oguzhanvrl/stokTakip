@@ -31,7 +31,7 @@ namespace FixtureManagmentApp.FormRestrictions
         {
             get
             {
-                return new MetroFramework.Forms.MetroForm[4] { new Views.Form1() , new Views.Staff(), new Views.Product(), new Views.Purchase()};
+                return new MetroFramework.Forms.MetroForm[5] { new Views.Form1() , new Views.Staff(), new Views.Product(), new Views.Purchase(),new Views.Inventory()};
             }
         }
 

@@ -1,5 +1,4 @@
-﻿using FixtureManagmentApp.FormRestrictions;
-using FixtureManagmentApp.Models;
+﻿using FixtureManagmentApp.Models;
 using FixtureManagmentApp.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -22,95 +21,56 @@ namespace FixtureManagmentApp.Controllers
             }
         }
         #endregion
-
-        public bool GirisYap(LoginView loginView)
+  
+        public void StokGuncelle(int? urunID, int? urunAdet)
         {
-            using (StokDBEntities stokDB = new StokDBEntities())
+            try
             {
-                var kullanici = stokDB.Kullanicis.FirstOrDefault(
-                    x => x.kullaniciAdi == loginView.kullaniciAdi &&
-                    x.kullaniciSifre == loginView.Sifre);
-
-                if (kullanici != null)
+                using (StokDBEntities stokDB = new StokDBEntities())
                 {
-                    Authorization.user = kullanici.perID;
-                    return true;
+                    int maxSTOKID = stokDB.Stoks.Max(s => s.stokID);
+                    Stok stok = stokDB.Stoks.FirstOrDefault(s => s.urunID == urunID);
+                    if (stok!=null)
+                    {
+                        stok.stokAdet += urunAdet;
+                        stok.stokAktif = true;
+                    }
+                    else
+                    {
+                        Stok stk = new Stok
+                        {
+                            stokID = maxSTOKID + 100,
+                            urunID = urunID,
+                            stokAdet = urunAdet,
+                            stokAktif = false,
+                        };
+                        stokDB.Stoks.Add(stk);
+                    }               
+                    stokDB.SaveChanges();                   
                 }
             }
-            return false;
-        }
-
-        public Personel KullaniciBul(int ID)// verilen ID'yi bulacak
-        {
-            using (StokDBEntities stokDB = new StokDBEntities())
+            catch (Exception)
             {
-                return stokDB.Personels.FirstOrDefault(x => x.perID == ID);
+                System.Windows.Forms.MessageBox.Show("Hata StokGuncelleme");
             }
         }
 
-        public Authorization.StaffTypes KullaniciTipiBul(int ID)
+        public List<StokGridView> StokGridListesi()
         {
             using (StokDBEntities stokDB = new StokDBEntities())
             {
-                return (Authorization.StaffTypes)KullaniciBul(ID).perTipID;
-            }
-        }
-
-        public List<string> Departmanlar()
-        {
-            using (StokDBEntities stokDB = new StokDBEntities())
-            {
-                return (from c in stokDB.Bolumlers
-                        select c.bolumAdi).ToList();
-            }
-        }
-
-        public List<string> Tipler()
-        {
-            using (StokDBEntities stokDB = new StokDBEntities())
-            {
-                return (from c in stokDB.PersonelTips
-                        select c.perTipAdi).ToList();
-            }
-        }
-
-        public int KullaniTipIDBul(string tipAd)
-        {
-            using (StokDBEntities stokDB = new StokDBEntities())
-            {
-                return stokDB.PersonelTips.FirstOrDefault(t => t.perTipAdi == tipAd).perTipID;
-            }
-        }
-
-
-        public int KullaniBolumIDBul(string bolumAd)
-        {
-            using (StokDBEntities stokDB = new StokDBEntities())
-            {
-                return stokDB.Bolumlers.FirstOrDefault(t => t.bolumAdi == bolumAd).bolumID;
-            }
-        }
-
-        public List<PersonelGridView> PersonelGridListesi()
-        {
-            using (StokDBEntities stokDB = new StokDBEntities())
-            {
-                return (from per in stokDB.Personels
-                        join tip in stokDB.PersonelTips on per.perTipID equals tip.perTipID
-                        join bol in stokDB.Bolumlers on per.bolumID equals bol.bolumID
-                        select new PersonelGridView()
+                return (from stk in stokDB.Stoks
+                        join urn in stokDB.Urunlers on stk.urunID equals urn.urunID
+                        join urntur in stokDB.UrunTurs on urn.urunTurID equals urntur.urunTurID
+                        where stk.stokAktif == true
+                        select new StokGridView()
                         {
-                            perID=per.perID,
-                            AdSoyad = per.perIsim,
-                            Bölüm = bol.bolumAdi,
-                            Tip = tip.perTipAdi,
-                            Aktif = per.perAktif,
-                            GirisTarih = per.perIseGiris,
-                            CikisTarih = per.perIsCikis,
-                            TCNo = per.perTCNo
-                        }).ToList<PersonelGridView>();
+                            UrunAd = urn.urunBilgi,
+                            UrunBilgi = urn.urunOzellik,
+                            UrunTur = urntur.urunTurAdi,
+                            Adet = stk.stokAdet
+                        }).ToList<StokGridView>();
             }
         }
-
     }
 }

@@ -15,10 +15,10 @@ namespace FixtureManagmentApp.Views
 {
     public partial class Staff : MetroFramework.Forms.MetroForm
     {
-        StokController stokController;
+        PersonelController stokController;
         public Staff()
         {
-            stokController = new StokController();
+            stokController = new PersonelController();
             InitializeComponent();
             dateGiris.MaxDate = DateTime.Now;
             dateCikis.MaxDate = DateTime.Now;

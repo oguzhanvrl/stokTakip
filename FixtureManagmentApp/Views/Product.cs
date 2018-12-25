@@ -13,11 +13,11 @@ namespace FixtureManagmentApp.Views
 {
     public partial class Product : MetroFramework.Forms.MetroForm
     {
-        StokController stokController;
+        PersonelController stokController;
         UrunController urunController;
         public Product()
         {
-            stokController = new StokController();
+            stokController = new PersonelController();
             urunController = new UrunController();
             InitializeComponent();
             radioEkle.Checked = true;

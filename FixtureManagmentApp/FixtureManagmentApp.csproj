@@ -65,6 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\SatinAlmaController.cs" />
+    <Compile Include="Controllers\PersonelController.cs" />
     <Compile Include="Controllers\StokController.cs" />
     <Compile Include="Controllers\UrunController.cs" />
     <Compile Include="FormRestrictions\Authorization.cs" />
@@ -128,12 +129,19 @@
     <Compile Include="ViewModels\LoginView.cs" />
     <Compile Include="ViewModels\PersonelGridView.cs" />
     <Compile Include="ViewModels\SatinAlmaGridView.cs" />
+    <Compile Include="ViewModels\StokGridView.cs" />
     <Compile Include="ViewModels\UrunGridView.cs" />
     <Compile Include="Views\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Inventory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Inventory.Designer.cs">
+      <DependentUpon>Inventory.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Login.cs">
       <SubType>Form</SubType>
@@ -176,6 +184,9 @@
     </Compile>
     <EmbeddedResource Include="Views\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Inventory.resx">
+      <DependentUpon>Inventory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

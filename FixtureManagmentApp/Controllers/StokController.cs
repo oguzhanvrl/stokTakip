@@ -100,6 +100,7 @@ namespace FixtureManagmentApp.Controllers
                         join bol in stokDB.Bolumlers on per.bolumID equals bol.bolumID
                         select new PersonelGridView()
                         {
+                            perID=per.perID,
                             AdSoyad = per.perIsim,
                             Bölüm = bol.bolumAdi,
                             Tip = tip.perTipAdi,

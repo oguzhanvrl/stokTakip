@@ -18,8 +18,10 @@ namespace FixtureManagmentApp.Views
         {
             satinAlmaController = new SatinAlmaController();            
             InitializeComponent();
+            this.ControlBox = false;
             GridGuncelle();
-            gridSatinAlma.Columns[6].Visible = false; // saID gizlendi
+            radioEkle.Checked = true;
+            gridSatinAlma.Columns[gridSatinAlma.ColumnCount - 1].Visible = false; // saID gizlendi
         }
 
         public void GridGuncelle()
@@ -39,8 +41,7 @@ namespace FixtureManagmentApp.Views
         {
             bool ekleChecked = radioEkle.Checked ? true : false;
             btnIslem.Text = ekleChecked ? "Ekle" : "Güncelle";
-
-            cmbUrunler.DataSource = satinAlmaController.SatinAlmaGridListesi();
+            cmbUrunler.DataSource = SatinAlmaController.Instance.UrunListesi();
         }
 
         private void btnIslem_Click(object sender, EventArgs e)
@@ -52,12 +53,11 @@ namespace FixtureManagmentApp.Views
                     msg = satinAlmaController.SatinAl(new ViewModels.SatinAlmaGridView {
                     Adet = (int.Parse)(txtAdet.Text),
                     BirimFiyat = (decimal.Parse)(txtBirimFiyat.Text),
-                    Firma = txtFirma.Text,
+                    Firma = lblFirma.Text,
                     Personel = txtPer.Text,
                     Tarih = dateTarih.Value,
-                    Urun = cmbUrunler.SelectedText
+                    Urun = cmbUrunler.Text
                 });
-                GridGuncelle();
             }
             else
             {
@@ -65,21 +65,21 @@ namespace FixtureManagmentApp.Views
                     saID = (int.Parse)(gridSatinAlma.CurrentRow.Cells[6].Value.ToString()),
                     Adet = (int.Parse)(txtAdet.Text),
                     BirimFiyat = (decimal.Parse)(txtBirimFiyat.Text),
-                    Firma = txtFirma.Text,
+                    Firma = lblFirma.Text,
                     Personel = txtPer.Text,
                     Tarih = dateTarih.Value,
-                    Urun = cmbUrunler.SelectedText
+                    Urun = cmbUrunler.Text
                 });
-                MetroFramework.MetroMessageBox.Show(this, msg, " ", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                GridGuncelle();
             }
+            MetroFramework.MetroMessageBox.Show(this, msg, " ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            GridGuncelle();
         }
 
         private void gridSatinAlma_CellClick(object sender, DataGridViewCellEventArgs e)
         {     
-            cmbUrunler.SelectedText = gridSatinAlma.CurrentRow.Cells[0].Value.ToString();
-            txtPer.Text = gridSatinAlma.CurrentRow.Cells[1].Value.ToString();
-            dateTarih.Value = (DateTime)gridSatinAlma.CurrentRow.Cells[2].Value;
+            cmbUrunler.SelectedItem = gridSatinAlma.CurrentRow.Cells[0].Value.ToString();
+            dateTarih.Value = (DateTime)gridSatinAlma.CurrentRow.Cells[1].Value;
+            txtPer.Text = gridSatinAlma.CurrentRow.Cells[2].Value.ToString();
             txtBirimFiyat.Text = gridSatinAlma.CurrentRow.Cells[3].Value.ToString();
             txtAdet.Text = gridSatinAlma.CurrentRow.Cells[4].Value.ToString();
             txtFirma.Text = gridSatinAlma.CurrentRow.Cells[5].Value.ToString();

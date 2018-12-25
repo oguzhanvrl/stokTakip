@@ -33,6 +33,7 @@ namespace FixtureManagmentApp.Controllers
                     SatinAlma p = new SatinAlma
                     {
                         saID = maxSAID + 100,
+                        urunID=UrunController.Instance.UrunIDBul(sa.Urun),
                         perID = Authorization.user,
                         saAdet = sa.Adet,
                         saBirimFiyat = sa.BirimFiyat,
@@ -106,6 +107,16 @@ namespace FixtureManagmentApp.Controllers
                             Tarih = sa.saTarih,
                             saID = sa.saID
                         }).ToList<SatinAlmaGridView>();
+            }
+        }
+
+        public List<string> UrunListesi()
+        {
+            using (StokDBEntities stokDB = new StokDBEntities())
+            {
+                return (from u in stokDB.Urunlers
+                        select u.urunBilgi
+                       ).ToList<string>();
             }
         }
     }

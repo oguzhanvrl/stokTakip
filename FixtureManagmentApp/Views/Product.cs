@@ -24,6 +24,7 @@ namespace FixtureManagmentApp.Views
             this.ControlBox = false;
             txtYeniUrunTuru.Visible = false;
             GridGuncelle();
+            gridUrun.Columns[gridUrun.ColumnCount - 1].Visible = false;
         }
 
         private void radioEkle_CheckedChanged(object sender, EventArgs e)

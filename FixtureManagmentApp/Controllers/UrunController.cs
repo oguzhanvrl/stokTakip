@@ -39,6 +39,7 @@ namespace FixtureManagmentApp.Controllers
                         join t in stokDB.UrunTurs on u.urunTurID equals t.urunTurID
                         select new UrunGridView()
                         {
+                            urunID=u.urunID,
                             UrunAd = u.urunBilgi,
                             UrunTur = t.urunTurAdi,
                             UrunOzellik = u.urunOzellik

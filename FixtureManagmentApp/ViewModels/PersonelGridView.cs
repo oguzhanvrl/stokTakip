@@ -8,7 +8,7 @@ namespace FixtureManagmentApp.ViewModels
 {
     public class PersonelGridView
     {
-        public int perID { get; set; }
+        public string TCNo { get; set; }
 
         public string AdSoyad{ get; set; }
 
@@ -22,6 +22,6 @@ namespace FixtureManagmentApp.ViewModels
 
         public DateTime? CikisTarih { get; set; }
 
-        public string TCNo { get; set; }
+        public int perID { get; set; }
     }
 }

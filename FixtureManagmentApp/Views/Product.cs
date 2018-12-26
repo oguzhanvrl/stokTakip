@@ -20,6 +20,8 @@ namespace FixtureManagmentApp.Views
             this.ControlBox = false;
             txtYeniUrunTuru.Visible = false;
             GridGuncelle();
+            gridUrun.AllowUserToResizeColumns = false;
+            gridUrun.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
             gridUrun.Columns[gridUrun.ColumnCount - 1].Visible = false;
         }
 
@@ -58,9 +60,12 @@ namespace FixtureManagmentApp.Views
 
         private void gridUrun_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            txtUrunAdi.Text = gridUrun.CurrentRow.Cells[0].Value.ToString();
-            txtUrunOzellik.Text = gridUrun.CurrentRow.Cells[2].Value.ToString();
-            cmbUrunTuru.SelectedItem = gridUrun.CurrentRow.Cells[1].Value.ToString();
+            if(e.RowIndex!=-1)
+            {
+                txtUrunAdi.Text = gridUrun.CurrentRow.Cells[0].Value.ToString();
+                txtUrunOzellik.Text = gridUrun.CurrentRow.Cells[2].Value.ToString();
+                cmbUrunTuru.SelectedItem = gridUrun.CurrentRow.Cells[1].Value.ToString();
+            }
         }
 
         void GridGuncelle()

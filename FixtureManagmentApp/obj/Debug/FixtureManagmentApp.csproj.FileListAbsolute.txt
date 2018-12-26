@@ -29,7 +29,6 @@ C:\Users\Dell\Desktop\c#\Fixture\stokTakip\FixtureManagmentApp\bin\Debug\MetroFr
 C:\Users\Dell\Desktop\c#\Fixture\stokTakip\FixtureManagmentApp\bin\Debug\MetroFramework.Fonts.dll
 C:\Users\Dell\Desktop\c#\Fixture\stokTakip\FixtureManagmentApp\bin\Debug\EntityFramework.xml
 C:\Users\Dell\Desktop\c#\Fixture\stokTakip\FixtureManagmentApp\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\Dell\Desktop\c#\Fixture\stokTakip\FixtureManagmentApp\obj\Debug\FixtureManagmentApp.csprojResolveAssemblyReference.cache
 C:\Users\Dell\Desktop\c#\Fixture\stokTakip\FixtureManagmentApp\obj\Debug\FixtureManagmentApp.Properties.Resources.resources
 C:\Users\Dell\Desktop\c#\Fixture\stokTakip\FixtureManagmentApp\obj\Debug\FixtureManagmentApp.Views.Form1.resources
 C:\Users\Dell\Desktop\c#\Fixture\stokTakip\FixtureManagmentApp\obj\Debug\FixtureManagmentApp.Views.Login.resources
@@ -68,3 +67,7 @@ C:\Users\Dell\Desktop\c#\Fixture\stokTakip\FixtureManagmentApp\obj\Debug\Fixture
 C:\Users\MONSTER\Desktop\yazilim sinama proje\stokTakip\FixtureManagmentApp\obj\Debug\FixtureManagmentApp.Views.Inventory.resources
 C:\Users\MONSTER\Desktop\yazilim sinama proje\stokTakip\FixtureManagmentApp\obj\Debug\FixtureManagmentApp.Views.Fixture.resources
 C:\Users\MONSTER\Desktop\yazilim sinama proje\stokTakip\FixtureManagmentApp\obj\Debug\FixtureManagmentApp.Views.Recycle.resources
+C:\Users\Dell\Desktop\c#\Fixture\stokTakip\FixtureManagmentApp\obj\Debug\FixtureManagmentApp.csprojAssemblyReference.cache
+C:\Users\Dell\Desktop\c#\Fixture\stokTakip\FixtureManagmentApp\obj\Debug\FixtureManagmentApp.Views.Fixture.resources
+C:\Users\Dell\Desktop\c#\Fixture\stokTakip\FixtureManagmentApp\obj\Debug\FixtureManagmentApp.Views.Inventory.resources
+C:\Users\Dell\Desktop\c#\Fixture\stokTakip\FixtureManagmentApp\obj\Debug\FixtureManagmentApp.Views.Recycle.resources

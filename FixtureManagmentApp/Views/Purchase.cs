@@ -19,6 +19,8 @@ namespace FixtureManagmentApp.Views
             this.ControlBox = false;
             GridGuncelle();
             radioEkle.Checked = true;
+            gridSatinAlma.AllowUserToResizeColumns = false;
+            gridSatinAlma.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
             gridSatinAlma.Columns[gridSatinAlma.ColumnCount - 1].Visible = false; // saID gizlendi
         }
 
@@ -86,13 +88,16 @@ namespace FixtureManagmentApp.Views
         }
 
         private void gridSatinAlma_CellClick(object sender, DataGridViewCellEventArgs e)
-        {     
-            cmbUrunler.SelectedItem = gridSatinAlma.CurrentRow.Cells[0].Value.ToString();
-            dateTarih.Value = (DateTime)gridSatinAlma.CurrentRow.Cells[1].Value;
-            txtPer.Text = gridSatinAlma.CurrentRow.Cells[2].Value.ToString();
-            txtBirimFiyat.Text = gridSatinAlma.CurrentRow.Cells[3].Value.ToString();
-            txtAdet.Text = gridSatinAlma.CurrentRow.Cells[4].Value.ToString();
-            txtFirma.Text = gridSatinAlma.CurrentRow.Cells[5].Value.ToString();
+        {
+            if (e.RowIndex != -1)
+            {
+                cmbUrunler.SelectedItem = gridSatinAlma.CurrentRow.Cells[0].Value.ToString();
+                dateTarih.Value = (DateTime)gridSatinAlma.CurrentRow.Cells[1].Value;
+                txtPer.Text = gridSatinAlma.CurrentRow.Cells[2].Value.ToString();
+                txtBirimFiyat.Text = gridSatinAlma.CurrentRow.Cells[3].Value.ToString();
+                txtAdet.Text = gridSatinAlma.CurrentRow.Cells[4].Value.ToString();
+                txtFirma.Text = gridSatinAlma.CurrentRow.Cells[5].Value.ToString();
+            }           
         }
     }
 }

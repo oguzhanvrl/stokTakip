@@ -21,16 +21,21 @@ namespace FixtureManagmentApp.Views
             cmbUrunler.DataSource = (from u in UrunController.Instance.UrunListesi() select u.UrunAd).ToList<string>();
             this.ControlBox = false;
             GridGuncelle();
+            gridZimmet.AllowUserToResizeColumns = false;
+            gridZimmet.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
             radioEkle.Checked = true;
             gridZimmet.Columns[gridZimmet.ColumnCount - 1].Visible = false; // saID gizlendi
         }
 
         private void gridPer_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            cmbUrunler.SelectedItem = gridZimmet.CurrentRow.Cells[0].Value;
-            cmbPer.SelectedItem = gridZimmet.CurrentRow.Cells[1].Value;
-            dateTarih.Value = (DateTime)gridZimmet.CurrentRow.Cells[2].Value;
-            txtAdet.Text = gridZimmet.CurrentRow.Cells[3].Value.ToString();
+            if(e.RowIndex!=-1)
+            {
+                cmbUrunler.SelectedItem = gridZimmet.CurrentRow.Cells[0].Value;
+                cmbPer.SelectedItem = gridZimmet.CurrentRow.Cells[1].Value;
+                dateTarih.Value = (DateTime)gridZimmet.CurrentRow.Cells[2].Value;
+                txtAdet.Text = gridZimmet.CurrentRow.Cells[3].Value.ToString();
+            }
         }
 
         public void GridGuncelle()

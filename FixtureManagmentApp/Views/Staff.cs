@@ -22,6 +22,8 @@ namespace FixtureManagmentApp.Views
             dateCikis.MaxDate = DateTime.Now;
             radioEkle.Checked = true;
             GridGuncelle();
+            gridPersonel.AllowUserToResizeColumns = false;
+            gridPersonel.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
             gridPersonel.Columns[3].ValueType = typeof(bool);
             gridPersonel.Columns[gridPersonel.ColumnCount - 1].Visible = false;
             this.ControlBox = false;
@@ -168,13 +170,16 @@ namespace FixtureManagmentApp.Views
 
         private void gridPersonel_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            txtTC.Text = gridPersonel.CurrentRow.Cells[0].Value.ToString();
-            txtAdSoyad.Text = gridPersonel.CurrentRow.Cells[1].Value.ToString();
-            cmbDepartman.SelectedItem =gridPersonel.CurrentRow.Cells[2].Value.ToString();
-            cmbPerTip.SelectedItem = gridPersonel.CurrentRow.Cells[3].Value.ToString();
-            cbAktif.Checked = (bool)gridPersonel.CurrentRow.Cells[4].Value;
-            dateGiris.Value = (DateTime)gridPersonel.CurrentRow.Cells[5].Value;
-            //dateCikis.Value = (DateTime)gridPersonel.CurrentRow.Cells[6].Value;
+            if(e.RowIndex!=-1)
+            {
+                txtTC.Text = gridPersonel.CurrentRow.Cells[0].Value.ToString();
+                txtAdSoyad.Text = gridPersonel.CurrentRow.Cells[1].Value.ToString();
+                cmbDepartman.SelectedItem = gridPersonel.CurrentRow.Cells[2].Value.ToString();
+                cmbPerTip.SelectedItem = gridPersonel.CurrentRow.Cells[3].Value.ToString();
+                cbAktif.Checked = (bool)gridPersonel.CurrentRow.Cells[4].Value;
+                dateGiris.Value = (DateTime)gridPersonel.CurrentRow.Cells[5].Value;
+                //dateCikis.Value = (DateTime)gridPersonel.CurrentRow.Cells[6].Value;
+            }
         }
     }
 }

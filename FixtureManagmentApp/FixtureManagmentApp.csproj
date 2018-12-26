@@ -71,6 +71,8 @@
     <Compile Include="Controllers\UrunController.cs" />
     <Compile Include="Controllers\ZimmetController.cs" />
     <Compile Include="FormRestrictions\Authorization.cs" />
+    <Compile Include="FormRestrictions\Cleaner.cs" />
+    <Compile Include="FormRestrictions\EmptyOrNullChecker.cs" />
     <Compile Include="FormRestrictions\SpecialTextbox.cs" />
     <Compile Include="Models\AtikKontrol.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
@@ -135,6 +137,7 @@
     <Compile Include="ViewModels\StokGridView.cs" />
     <Compile Include="ViewModels\UrunGridView.cs" />
     <Compile Include="ViewModels\ZimmetGridView.cs" />
+    <Compile Include="FormRestrictions\DGVPrinter.cs" />
     <Compile Include="Views\Fixture.cs">
       <SubType>Form</SubType>
     </Compile>

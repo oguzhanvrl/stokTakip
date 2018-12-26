@@ -17,20 +17,26 @@ namespace FixtureManagmentApp.Views
         public Recycle()
         {
             InitializeComponent();
+            this.ControlBox = false;
             txtPersonel.Enabled = false;
             txtUrun.Enabled = false;
             dateTarih.Enabled = false;
             radioGeriGonder.Checked = true;
             GridGuncelle();
+            gridAtik.AllowUserToResizeColumns = false;
+            gridAtik.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
         }
 
         private void gridAtik_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            txtPersonel.Text = gridAtik.CurrentRow.Cells[0].Value.ToString();
-            txtUrun.Text = gridAtik.CurrentRow.Cells[1].Value.ToString();
-            txtNot.Text = gridAtik.CurrentRow.Cells[2].Value.ToString();
-            dateTarih.Value = (DateTime)gridAtik.CurrentRow.Cells[3].Value;
-            txtAdet.Text = gridAtik.CurrentRow.Cells[4].Value.ToString();
+            if(e.RowIndex!=-1)
+            {
+                txtPersonel.Text = gridAtik.CurrentRow.Cells[0].Value.ToString();
+                txtUrun.Text = gridAtik.CurrentRow.Cells[1].Value.ToString();
+                txtNot.Text = gridAtik.CurrentRow.Cells[2].Value.ToString();
+                dateTarih.Value = (DateTime)gridAtik.CurrentRow.Cells[3].Value;
+                txtAdet.Text = gridAtik.CurrentRow.Cells[4].Value.ToString();
+            }           
         }
 
         private void radioGeriGonder_CheckedChanged(object sender, EventArgs e)

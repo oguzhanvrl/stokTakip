@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gridZimmet = new MetroFramework.Controls.MetroGrid();
             this.lblAraPer = new MetroFramework.Controls.MetroLabel();
-            this.txtAramaPer = new MetroFramework.Controls.MetroTextBox();
+            this.txtAra = new MetroFramework.Controls.MetroTextBox();
             this.radioCıkar = new MetroFramework.Controls.MetroRadioButton();
             this.radioEkle = new MetroFramework.Controls.MetroRadioButton();
             this.txtAdet = new MetroFramework.Controls.MetroTextBox();
@@ -50,96 +50,101 @@
             // 
             // gridZimmet
             // 
+            this.gridZimmet.AllowUserToAddRows = false;
+            this.gridZimmet.AllowUserToDeleteRows = false;
             this.gridZimmet.AllowUserToResizeRows = false;
             this.gridZimmet.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.gridZimmet.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.gridZimmet.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.gridZimmet.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridZimmet.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridZimmet.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.gridZimmet.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gridZimmet.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gridZimmet.DefaultCellStyle = dataGridViewCellStyle8;
             this.gridZimmet.EnableHeadersVisualStyles = false;
             this.gridZimmet.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.gridZimmet.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.gridZimmet.Location = new System.Drawing.Point(23, 155);
+            this.gridZimmet.Location = new System.Drawing.Point(23, 88);
             this.gridZimmet.MultiSelect = false;
             this.gridZimmet.Name = "gridZimmet";
             this.gridZimmet.ReadOnly = true;
             this.gridZimmet.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridZimmet.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridZimmet.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.gridZimmet.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.gridZimmet.RowTemplate.Height = 24;
             this.gridZimmet.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridZimmet.Size = new System.Drawing.Size(1022, 531);
+            this.gridZimmet.Size = new System.Drawing.Size(1022, 504);
             this.gridZimmet.TabIndex = 55;
             this.gridZimmet.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridPer_CellClick);
             // 
             // lblAraPer
             // 
             this.lblAraPer.AutoSize = true;
-            this.lblAraPer.Location = new System.Drawing.Point(788, 42);
+            this.lblAraPer.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.lblAraPer.Location = new System.Drawing.Point(776, 30);
             this.lblAraPer.Name = "lblAraPer";
-            this.lblAraPer.Size = new System.Drawing.Size(143, 20);
+            this.lblAraPer.Size = new System.Drawing.Size(154, 25);
             this.lblAraPer.TabIndex = 60;
-            this.lblAraPer.Text = "Personel İsimiyle Ara :";
+            this.lblAraPer.Text = "Ürün İsimiyle Ara :";
             // 
-            // txtAramaPer
-            // 
-            // 
+            // txtAra
             // 
             // 
-            this.txtAramaPer.CustomButton.Image = null;
-            this.txtAramaPer.CustomButton.Location = new System.Drawing.Point(80, 1);
-            this.txtAramaPer.CustomButton.Name = "";
-            this.txtAramaPer.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.txtAramaPer.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txtAramaPer.CustomButton.TabIndex = 1;
-            this.txtAramaPer.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.txtAramaPer.CustomButton.UseSelectable = true;
-            this.txtAramaPer.CustomButton.Visible = false;
-            this.txtAramaPer.Lines = new string[0];
-            this.txtAramaPer.Location = new System.Drawing.Point(943, 42);
-            this.txtAramaPer.MaxLength = 32767;
-            this.txtAramaPer.Name = "txtAramaPer";
-            this.txtAramaPer.PasswordChar = '\0';
-            this.txtAramaPer.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtAramaPer.SelectedText = "";
-            this.txtAramaPer.SelectionLength = 0;
-            this.txtAramaPer.SelectionStart = 0;
-            this.txtAramaPer.ShortcutsEnabled = true;
-            this.txtAramaPer.Size = new System.Drawing.Size(102, 23);
-            this.txtAramaPer.TabIndex = 59;
-            this.txtAramaPer.UseSelectable = true;
-            this.txtAramaPer.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.txtAramaPer.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // 
+            this.txtAra.CustomButton.Image = null;
+            this.txtAra.CustomButton.Location = new System.Drawing.Point(171, 2);
+            this.txtAra.CustomButton.Name = "";
+            this.txtAra.CustomButton.Size = new System.Drawing.Size(35, 35);
+            this.txtAra.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtAra.CustomButton.TabIndex = 1;
+            this.txtAra.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtAra.CustomButton.UseSelectable = true;
+            this.txtAra.CustomButton.Visible = false;
+            this.txtAra.FontSize = MetroFramework.MetroTextBoxSize.Tall;
+            this.txtAra.Lines = new string[0];
+            this.txtAra.Location = new System.Drawing.Point(1056, 15);
+            this.txtAra.MaxLength = 32767;
+            this.txtAra.Name = "txtAra";
+            this.txtAra.PasswordChar = '\0';
+            this.txtAra.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtAra.SelectedText = "";
+            this.txtAra.SelectionLength = 0;
+            this.txtAra.SelectionStart = 0;
+            this.txtAra.ShortcutsEnabled = true;
+            this.txtAra.Size = new System.Drawing.Size(209, 40);
+            this.txtAra.TabIndex = 59;
+            this.txtAra.UseSelectable = true;
+            this.txtAra.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txtAra.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
             // radioCıkar
             // 
             this.radioCıkar.AutoSize = true;
-            this.radioCıkar.Location = new System.Drawing.Point(497, 42);
+            this.radioCıkar.FontSize = MetroFramework.MetroCheckBoxSize.Tall;
+            this.radioCıkar.Location = new System.Drawing.Point(349, 30);
             this.radioCıkar.Name = "radioCıkar";
-            this.radioCıkar.Size = new System.Drawing.Size(219, 17);
+            this.radioCıkar.Size = new System.Drawing.Size(313, 25);
             this.radioCıkar.TabIndex = 63;
             this.radioCıkar.Text = "Zimmetten Çıkartma İşlemi > ATIK";
             this.radioCıkar.UseSelectable = true;
@@ -147,9 +152,10 @@
             // radioEkle
             // 
             this.radioEkle.AutoSize = true;
-            this.radioEkle.Location = new System.Drawing.Point(329, 42);
+            this.radioEkle.FontSize = MetroFramework.MetroCheckBoxSize.Tall;
+            this.radioEkle.Location = new System.Drawing.Point(34, 30);
             this.radioEkle.Name = "radioEkle";
-            this.radioEkle.Size = new System.Drawing.Size(149, 17);
+            this.radioEkle.Size = new System.Drawing.Size(211, 25);
             this.radioEkle.TabIndex = 62;
             this.radioEkle.Text = "Zimmet Ekleme İşlemi";
             this.radioEkle.UseSelectable = true;
@@ -161,16 +167,16 @@
             // 
             // 
             this.txtAdet.CustomButton.Image = null;
-            this.txtAdet.CustomButton.Location = new System.Drawing.Point(80, 1);
+            this.txtAdet.CustomButton.Location = new System.Drawing.Point(125, 2);
             this.txtAdet.CustomButton.Name = "";
-            this.txtAdet.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.txtAdet.CustomButton.Size = new System.Drawing.Size(25, 25);
             this.txtAdet.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.txtAdet.CustomButton.TabIndex = 1;
             this.txtAdet.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
             this.txtAdet.CustomButton.UseSelectable = true;
             this.txtAdet.CustomButton.Visible = false;
             this.txtAdet.Lines = new string[0];
-            this.txtAdet.Location = new System.Drawing.Point(1167, 489);
+            this.txtAdet.Location = new System.Drawing.Point(1129, 503);
             this.txtAdet.MaxLength = 32767;
             this.txtAdet.Name = "txtAdet";
             this.txtAdet.PasswordChar = '\0';
@@ -179,7 +185,7 @@
             this.txtAdet.SelectionLength = 0;
             this.txtAdet.SelectionStart = 0;
             this.txtAdet.ShortcutsEnabled = true;
-            this.txtAdet.Size = new System.Drawing.Size(102, 23);
+            this.txtAdet.Size = new System.Drawing.Size(153, 30);
             this.txtAdet.TabIndex = 74;
             this.txtAdet.UseSelectable = true;
             this.txtAdet.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -187,9 +193,10 @@
             // 
             // btnIslem
             // 
-            this.btnIslem.Location = new System.Drawing.Point(1142, 556);
+            this.btnIslem.FontSize = MetroFramework.MetroButtonSize.Tall;
+            this.btnIslem.Location = new System.Drawing.Point(1115, 554);
             this.btnIslem.Name = "btnIslem";
-            this.btnIslem.Size = new System.Drawing.Size(140, 36);
+            this.btnIslem.Size = new System.Drawing.Size(240, 111);
             this.btnIslem.TabIndex = 71;
             this.btnIslem.Text = "Ekle";
             this.btnIslem.UseSelectable = true;
@@ -198,7 +205,7 @@
             // lblTarih
             // 
             this.lblTarih.AutoSize = true;
-            this.lblTarih.Location = new System.Drawing.Point(1156, 370);
+            this.lblTarih.Location = new System.Drawing.Point(1129, 370);
             this.lblTarih.Name = "lblTarih";
             this.lblTarih.Size = new System.Drawing.Size(136, 20);
             this.lblTarih.TabIndex = 70;
@@ -208,20 +215,20 @@
             // 
             this.dateTarih.CustomFormat = "dd.MM.yyyy";
             this.dateTarih.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTarih.Location = new System.Drawing.Point(1142, 407);
+            this.dateTarih.Location = new System.Drawing.Point(1115, 394);
             this.dateTarih.Margin = new System.Windows.Forms.Padding(4);
             this.dateTarih.MaxDate = new System.DateTime(2070, 1, 1, 0, 0, 0, 0);
             this.dateTarih.MinDate = new System.DateTime(1970, 1, 1, 0, 0, 0, 0);
             this.dateTarih.MinimumSize = new System.Drawing.Size(0, 30);
             this.dateTarih.Name = "dateTarih";
-            this.dateTarih.Size = new System.Drawing.Size(170, 30);
+            this.dateTarih.Size = new System.Drawing.Size(224, 30);
             this.dateTarih.TabIndex = 69;
             this.dateTarih.MouseDown += new System.Windows.Forms.MouseEventHandler(this.dateTarih_MouseDown);
             // 
             // lblAdet
             // 
             this.lblAdet.AutoSize = true;
-            this.lblAdet.Location = new System.Drawing.Point(1142, 457);
+            this.lblAdet.Location = new System.Drawing.Point(1129, 470);
             this.lblAdet.Name = "lblAdet";
             this.lblAdet.Size = new System.Drawing.Size(153, 20);
             this.lblAdet.TabIndex = 68;
@@ -230,7 +237,7 @@
             // lblUrun
             // 
             this.lblUrun.AutoSize = true;
-            this.lblUrun.Location = new System.Drawing.Point(1191, 290);
+            this.lblUrun.Location = new System.Drawing.Point(1131, 258);
             this.lblUrun.Name = "lblUrun";
             this.lblUrun.Size = new System.Drawing.Size(56, 20);
             this.lblUrun.TabIndex = 66;
@@ -240,7 +247,7 @@
             // 
             this.cmbUrunler.FormattingEnabled = true;
             this.cmbUrunler.ItemHeight = 24;
-            this.cmbUrunler.Location = new System.Drawing.Point(1113, 313);
+            this.cmbUrunler.Location = new System.Drawing.Point(1115, 286);
             this.cmbUrunler.Name = "cmbUrunler";
             this.cmbUrunler.Size = new System.Drawing.Size(224, 30);
             this.cmbUrunler.TabIndex = 64;
@@ -249,7 +256,7 @@
             // lblPer
             // 
             this.lblPer.AutoSize = true;
-            this.lblPer.Location = new System.Drawing.Point(1178, 218);
+            this.lblPer.Location = new System.Drawing.Point(1129, 157);
             this.lblPer.Name = "lblPer";
             this.lblPer.Size = new System.Drawing.Size(78, 20);
             this.lblPer.TabIndex = 78;
@@ -259,7 +266,7 @@
             // 
             this.cmbPer.FormattingEnabled = true;
             this.cmbPer.ItemHeight = 24;
-            this.cmbPer.Location = new System.Drawing.Point(1113, 241);
+            this.cmbPer.Location = new System.Drawing.Point(1115, 184);
             this.cmbPer.Name = "cmbPer";
             this.cmbPer.Size = new System.Drawing.Size(224, 30);
             this.cmbPer.TabIndex = 77;
@@ -282,10 +289,10 @@
             this.Controls.Add(this.radioCıkar);
             this.Controls.Add(this.radioEkle);
             this.Controls.Add(this.lblAraPer);
-            this.Controls.Add(this.txtAramaPer);
+            this.Controls.Add(this.txtAra);
             this.Controls.Add(this.gridZimmet);
             this.Name = "Fixture";
-            this.Text = "Fixture";
+            this.Style = MetroFramework.MetroColorStyle.White;
             ((System.ComponentModel.ISupportInitialize)(this.gridZimmet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -295,7 +302,7 @@
         #endregion
         private MetroFramework.Controls.MetroGrid gridZimmet;
         private MetroFramework.Controls.MetroLabel lblAraPer;
-        private MetroFramework.Controls.MetroTextBox txtAramaPer;
+        private MetroFramework.Controls.MetroTextBox txtAra;
         private MetroFramework.Controls.MetroRadioButton radioCıkar;
         private MetroFramework.Controls.MetroRadioButton radioEkle;
         private MetroFramework.Controls.MetroTextBox txtAdet;

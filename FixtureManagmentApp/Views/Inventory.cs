@@ -18,7 +18,10 @@ namespace FixtureManagmentApp.Views
         public Inventory()
         {
             InitializeComponent();
+            this.ControlBox = false;
             gridStok.DataSource = StokController.Instance.StokGridListesi();
+            gridStok.AllowUserToResizeColumns = false;
+            gridStok.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
 
             /*
              *   int selectedRow = gridZimmet.CurrentRow.Index;     

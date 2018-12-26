@@ -8,6 +8,7 @@
     <Property Name="atikAktif" Type="Boolean" />
     <Property Name="zimmetID" Type="Int32" />
     <Property Name="atikNot" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="atikAdet" Type="Int32" />
   </EntityType>
   <EntityType Name="Bolumler">
     <Key>
@@ -119,6 +120,7 @@
     <Property Name="urunID" Type="Int32" />
     <Property Name="perID" Type="Int32" />
     <Property Name="zimmetTarih" Type="DateTime" Precision="0" />
+    <Property Name="zimmetAdet" Type="Int32" />
   </EntityType>
   <EntityContainer Name="StokDBEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="AtikKontrols" EntityType="Self.AtikKontrol" />

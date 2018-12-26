@@ -8,6 +8,7 @@
           <ScalarProperty Name="atikAktif" ColumnName="atikAktif" />
           <ScalarProperty Name="zimmetID" ColumnName="zimmetID" />
           <ScalarProperty Name="atikNot" ColumnName="atikNot" />
+          <ScalarProperty Name="atikAdet" ColumnName="atikAdet" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -131,6 +132,7 @@
           <ScalarProperty Name="urunID" ColumnName="urunID" />
           <ScalarProperty Name="perID" ColumnName="perID" />
           <ScalarProperty Name="zimmetTarih" ColumnName="zimmetTarih" />
+          <ScalarProperty Name="zimmetAdet" ColumnName="zimmetAdet" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

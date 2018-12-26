@@ -14,11 +14,9 @@ namespace FixtureManagmentApp.Views
 {
     public partial class MainScreen : MetroFramework.Forms.MetroForm
     {
-        PersonelController stokController;
         public MainScreen()
         {
             InitializeComponent();
-            stokController = new PersonelController();
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
         }
 
@@ -30,7 +28,7 @@ namespace FixtureManagmentApp.Views
             specialTextbox = SpecialTextbox.Instance;
             auth = Authorization.Instance;
             string[] tabNames = Authorization.tabNames;
-            if (stokController.KullaniciTipiBul(Authorization.user) == Authorization.StaffTypes.Yönetici)
+            if (PersonelController.Instance.KullaniciTipiBul(Authorization.user) == Authorization.StaffTypes.Yönetici)
             {
                 foreach (string tabName in tabNames)
                 {

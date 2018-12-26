@@ -12,16 +12,13 @@ namespace FixtureManagmentApp.Controllers
     {
         #region Singleton
         private static StokController instance;
-        public static StokController Instance
-        {
-            get
-            {
-                if (instance == null) instance = new StokController();
-                return instance;
-            }
-        }
+
+        private StokController() { }
+
+        public static StokController Instance { get { if (instance == null) instance = new StokController(); return instance; } }
         #endregion
-  
+
+
         public void StokGuncelle(int? urunID, int? urunAdet)
         {
             try

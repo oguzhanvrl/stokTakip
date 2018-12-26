@@ -18,5 +18,6 @@ namespace FixtureManagmentApp.Models
         public Nullable<bool> atikAktif { get; set; }
         public Nullable<int> zimmetID { get; set; }
         public string atikNot { get; set; }
+        public Nullable<int> atikAdet { get; set; }
     }
 }

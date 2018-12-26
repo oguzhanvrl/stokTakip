@@ -15,10 +15,8 @@ namespace FixtureManagmentApp.Views
 {
     public partial class Staff : MetroFramework.Forms.MetroForm
     {
-        PersonelController stokController;
         public Staff()
         {
-            stokController = new PersonelController();
             InitializeComponent();
             dateGiris.MaxDate = DateTime.Now;
             dateCikis.MaxDate = DateTime.Now;
@@ -31,7 +29,7 @@ namespace FixtureManagmentApp.Views
 
         public void GridGuncelle()
         {
-            gridPersonel.DataSource = stokController.PersonelGridListesi();
+            gridPersonel.DataSource = PersonelController.Instance.PersonelGridListesi();
         }
 
         private void dateGiris_ValueChanged(object sender, EventArgs e)
@@ -72,8 +70,8 @@ namespace FixtureManagmentApp.Views
             bool ekleChecked = radioEkle.Checked ? true : false;
             btnIslem.Text = ekleChecked ? "Ekle" : "Güncelle";
 
-            cmbDepartman.DataSource = stokController.Departmanlar();
-            cmbPerTip.DataSource = stokController.Tipler();
+            cmbDepartman.DataSource = PersonelController.Instance.Departmanlar();
+            cmbPerTip.DataSource = PersonelController.Instance.Tipler();
 
             if (ekleChecked)
             {
@@ -110,14 +108,13 @@ namespace FixtureManagmentApp.Views
 
                         per.perIsim = txtAdSoyad.Text;
                         per.perAktif = cbAktif.Checked;
-                        per.perTipID = stokController.KullaniTipIDBul(cmbPerTip.Text);
-                        per.bolumID = stokController.KullaniBolumIDBul(cmbDepartman.Text);
+                        per.perTipID = PersonelController.Instance.KullaniTipIDBul(cmbPerTip.Text);
+                        per.bolumID = PersonelController.Instance.KullaniBolumIDBul(cmbDepartman.Text);
                         per.perIseGiris = dateGiris.Value.Date;
                         per.perTCNo = txtTC.Text;
 
                         stokDB.Personels.Add(per);
                         stokDB.SaveChanges();
-                        GridGuncelle();
                     }
                 }
                 catch (Exception)
@@ -139,15 +136,14 @@ namespace FixtureManagmentApp.Views
                             {
                                 per.perIsim = txtAdSoyad.Text;
                                 per.perTCNo = txtTC.Text;
-                                per.bolumID = stokController.KullaniBolumIDBul(cmbDepartman.Text);
-                                per.perTipID = stokController.KullaniTipIDBul(cmbPerTip.Text);
+                                per.bolumID = PersonelController.Instance.KullaniBolumIDBul(cmbDepartman.Text);
+                                per.perTipID = PersonelController.Instance.KullaniTipIDBul(cmbPerTip.Text);
                                 per.perAktif = cbAktif.Checked;
                                 per.perIseGiris = dateGiris.Value.Date;
                                 per.perIsCikis = dateCikis.Value.Date;
 
                                 stokDB.SaveChanges();                               
                                 MessageBox.Show("Personel Başarıyla Güncellendi.");
-                                GridGuncelle();
                             }
                             catch (Exception)
                             {
@@ -165,6 +161,9 @@ namespace FixtureManagmentApp.Views
                     MessageBox.Show("Hata");
                 }
             }
+            int selectedRow = gridPersonel.CurrentRow.Index;
+            GridGuncelle();
+            gridPersonel.Rows[selectedRow].Selected = true;
         }
 
         private void gridPersonel_CellClick(object sender, DataGridViewCellEventArgs e)

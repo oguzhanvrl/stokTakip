@@ -12,14 +12,10 @@ namespace FixtureManagmentApp.Controllers
     {
         #region Singleton
         private static UrunController instance;
-        public static UrunController Instance
-        {
-            get
-            {
-                if (instance == null) instance = new UrunController();
-                return instance;
-            }
-        }
+
+        private UrunController() { }
+
+        public static UrunController Instance { get { if (instance == null) instance = new UrunController(); return instance; } }
         #endregion
 
         public List<string> UrunTipiListesi()

@@ -13,15 +13,12 @@ namespace FixtureManagmentApp.Controllers
     {
         #region Singleton
         private static SatinAlmaController instance;
-        public static SatinAlmaController Instance
-        {
-            get
-            {
-                if (instance == null) instance = new SatinAlmaController();
-                return instance;
-            }
-        }
+
+        private SatinAlmaController() { }
+
+        public static SatinAlmaController Instance { get { if (instance == null) instance = new SatinAlmaController(); return instance; } }
         #endregion
+
 
         public string SatinAl(SatinAlmaGridView sa)
         {

@@ -19,5 +19,6 @@ namespace FixtureManagmentApp.Models
         public Nullable<int> urunID { get; set; }
         public Nullable<int> perID { get; set; }
         public Nullable<System.DateTime> zimmetTarih { get; set; }
+        public Nullable<int> zimmetAdet { get; set; }
     }
 }

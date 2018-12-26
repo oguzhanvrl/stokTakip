@@ -13,10 +13,8 @@ namespace FixtureManagmentApp.Views
 {
     public partial class Purchase : MetroFramework.Forms.MetroForm
     {
-        SatinAlmaController satinAlmaController;
         public Purchase()
-        {
-            satinAlmaController = new SatinAlmaController();            
+        {          
             InitializeComponent();
             this.ControlBox = false;
             GridGuncelle();
@@ -26,7 +24,7 @@ namespace FixtureManagmentApp.Views
 
         public void GridGuncelle()
         {
-            gridSatinAlma.DataSource = satinAlmaController.SatinAlmaGridListesi();
+            gridSatinAlma.DataSource = SatinAlmaController.Instance.SatinAlmaGridListesi();
         }
 
         private void dateTarih_MouseDown(object sender, MouseEventArgs e)
@@ -60,7 +58,7 @@ namespace FixtureManagmentApp.Views
             string msg;
             if (ekleChecked)
             {
-                    msg = satinAlmaController.SatinAl(new ViewModels.SatinAlmaGridView {
+                    msg = SatinAlmaController.Instance.SatinAl(new ViewModels.SatinAlmaGridView {
                     Adet = (int.Parse)(txtAdet.Text),
                     BirimFiyat = (decimal.Parse)(txtBirimFiyat.Text),
                     Firma = lblFirma.Text,
@@ -71,7 +69,7 @@ namespace FixtureManagmentApp.Views
             }
             else
             {
-                    msg = satinAlmaController.SatinAlGuncelle(new ViewModels.SatinAlmaGridView {
+                    msg = SatinAlmaController.Instance.SatinAlGuncelle(new ViewModels.SatinAlmaGridView {
                     saID = (int.Parse)(gridSatinAlma.CurrentRow.Cells[6].Value.ToString()),
                     Adet = (int.Parse)(txtAdet.Text),
                     BirimFiyat = (decimal.Parse)(txtBirimFiyat.Text),
@@ -82,7 +80,9 @@ namespace FixtureManagmentApp.Views
                 });
             }
             MetroFramework.MetroMessageBox.Show(this, msg, " ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            int selectedRow = gridSatinAlma.CurrentRow.Index;
             GridGuncelle();
+            gridSatinAlma.Rows[selectedRow].Selected = true;
         }
 
         private void gridSatinAlma_CellClick(object sender, DataGridViewCellEventArgs e)

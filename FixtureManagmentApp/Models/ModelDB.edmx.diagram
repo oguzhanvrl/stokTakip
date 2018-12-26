@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="8a65acbd11b74ad4a51450b6f8ad0d81" Name="Diagram1">
+      <Diagram DiagramId="abe658ed75c04f3bb3ffb18e01c61a1c" Name="Diagram1">
         <EntityTypeShape EntityType="StokDBModel.AtikKontrol" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="StokDBModel.Bolumler" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="StokDBModel.Islemler" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />

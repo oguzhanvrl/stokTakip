@@ -15,12 +15,16 @@ namespace FixtureManagmentApp.Views
 {
     public partial class Inventory : MetroFramework.Forms.MetroForm
     {
-        StokController stokController;
         public Inventory()
         {
-            stokController = new StokController();
             InitializeComponent();
-            gridStok.DataSource = stokController.StokGridListesi();
-        }   
+            gridStok.DataSource = StokController.Instance.StokGridListesi();
+
+            /*
+             *   int selectedRow = gridZimmet.CurrentRow.Index;     
+            GridGuncelle();
+            gridZimmet.Rows[selectedRow].Selected = true;
+             */
+        }
     }
 }

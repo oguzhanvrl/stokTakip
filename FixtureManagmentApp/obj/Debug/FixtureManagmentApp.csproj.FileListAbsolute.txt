@@ -66,3 +66,5 @@ C:\Users\MONSTER\Desktop\yazilim sinama proje\stokTakip\FixtureManagmentApp\obj\
 C:\Users\MONSTER\Desktop\yazilim sinama proje\stokTakip\FixtureManagmentApp\obj\Debug\FixtureManagmentApp.Views.Purchase.resources
 C:\Users\Dell\Desktop\c#\Fixture\stokTakip\FixtureManagmentApp\obj\Debug\FixtureManagmentApp.Views.Purchase.resources
 C:\Users\MONSTER\Desktop\yazilim sinama proje\stokTakip\FixtureManagmentApp\obj\Debug\FixtureManagmentApp.Views.Inventory.resources
+C:\Users\MONSTER\Desktop\yazilim sinama proje\stokTakip\FixtureManagmentApp\obj\Debug\FixtureManagmentApp.Views.Fixture.resources
+C:\Users\MONSTER\Desktop\yazilim sinama proje\stokTakip\FixtureManagmentApp\obj\Debug\FixtureManagmentApp.Views.Recycle.resources

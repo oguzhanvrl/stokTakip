@@ -13,6 +13,7 @@
           <Property Name="atikAktif" Type="bit" />
           <Property Name="zimmetID" Type="int" />
           <Property Name="atikNot" Type="nvarchar(max)" />
+          <Property Name="atikAdet" Type="int" />
         </EntityType>
         <EntityType Name="Bolumler">
           <Key>
@@ -124,6 +125,7 @@
           <Property Name="urunID" Type="int" />
           <Property Name="perID" Type="int" />
           <Property Name="zimmetTarih" Type="date" />
+          <Property Name="zimmetAdet" Type="int" />
         </EntityType>
         <EntityContainer Name="StokDBModelStoreContainer">
           <EntitySet Name="AtikKontrol" EntityType="Self.AtikKontrol" Schema="dbo" store:Type="Tables" />
@@ -153,6 +155,7 @@
           <Property Name="atikAktif" Type="Boolean" />
           <Property Name="zimmetID" Type="Int32" />
           <Property Name="atikNot" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="atikAdet" Type="Int32" />
         </EntityType>
         <EntityType Name="Bolumler">
           <Key>
@@ -264,6 +267,7 @@
           <Property Name="urunID" Type="Int32" />
           <Property Name="perID" Type="Int32" />
           <Property Name="zimmetTarih" Type="DateTime" Precision="0" />
+          <Property Name="zimmetAdet" Type="Int32" />
         </EntityType>
         <EntityContainer Name="StokDBEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="AtikKontrols" EntityType="Self.AtikKontrol" />
@@ -293,6 +297,7 @@
                 <ScalarProperty Name="atikAktif" ColumnName="atikAktif" />
                 <ScalarProperty Name="zimmetID" ColumnName="zimmetID" />
                 <ScalarProperty Name="atikNot" ColumnName="atikNot" />
+                <ScalarProperty Name="atikAdet" ColumnName="atikAdet" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -416,6 +421,7 @@
                 <ScalarProperty Name="urunID" ColumnName="urunID" />
                 <ScalarProperty Name="perID" ColumnName="perID" />
                 <ScalarProperty Name="zimmetTarih" ColumnName="zimmetTarih" />
+                <ScalarProperty Name="zimmetAdet" ColumnName="zimmetAdet" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

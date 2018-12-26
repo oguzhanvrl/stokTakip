@@ -14,10 +14,8 @@ namespace FixtureManagmentApp.Views
 {
     public partial class Login : MetroFramework.Forms.MetroForm
     {
-        PersonelController stokController;
         public Login()
-        {
-            stokController = new PersonelController();       
+        {   
             InitializeComponent();
             txtKullaniciAdi.Text = "admin";
             txtSifre .Text= "123456789";
@@ -49,7 +47,7 @@ namespace FixtureManagmentApp.Views
             {
                 MetroFramework.MetroMessageBox.Show(this, "Şifre 8 karakterden uzun olmalıdır.", "Şifre Hatası", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            else if (stokController.GirisYap(kullanici))
+            else if (PersonelController.Instance.GirisYap(kullanici))
             {
                 MainScreen main = new MainScreen();
                 this.Hide();

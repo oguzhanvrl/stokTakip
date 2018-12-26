@@ -64,10 +64,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\AtikController.cs" />
     <Compile Include="Controllers\SatinAlmaController.cs" />
     <Compile Include="Controllers\PersonelController.cs" />
     <Compile Include="Controllers\StokController.cs" />
     <Compile Include="Controllers\UrunController.cs" />
+    <Compile Include="Controllers\ZimmetController.cs" />
     <Compile Include="FormRestrictions\Authorization.cs" />
     <Compile Include="FormRestrictions\SpecialTextbox.cs" />
     <Compile Include="Models\AtikKontrol.cs">
@@ -126,11 +128,19 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\AtikGridView.cs" />
     <Compile Include="ViewModels\LoginView.cs" />
     <Compile Include="ViewModels\PersonelGridView.cs" />
     <Compile Include="ViewModels\SatinAlmaGridView.cs" />
     <Compile Include="ViewModels\StokGridView.cs" />
     <Compile Include="ViewModels\UrunGridView.cs" />
+    <Compile Include="ViewModels\ZimmetGridView.cs" />
+    <Compile Include="Views\Fixture.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Fixture.Designer.cs">
+      <DependentUpon>Fixture.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -167,6 +177,12 @@
     <Compile Include="Views\Purchase.Designer.cs">
       <DependentUpon>Purchase.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Recycle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Recycle.Designer.cs">
+      <DependentUpon>Recycle.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Staff.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -182,6 +198,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Views\Fixture.resx">
+      <DependentUpon>Fixture.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -199,6 +218,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Purchase.resx">
       <DependentUpon>Purchase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Recycle.resx">
+      <DependentUpon>Recycle.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Staff.resx">
       <DependentUpon>Staff.cs</DependentUpon>
@@ -224,7 +246,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>

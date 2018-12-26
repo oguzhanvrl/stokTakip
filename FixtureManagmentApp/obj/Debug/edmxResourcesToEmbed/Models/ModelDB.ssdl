@@ -8,6 +8,7 @@
     <Property Name="atikAktif" Type="bit" />
     <Property Name="zimmetID" Type="int" />
     <Property Name="atikNot" Type="nvarchar(max)" />
+    <Property Name="atikAdet" Type="int" />
   </EntityType>
   <EntityType Name="Bolumler">
     <Key>
@@ -119,6 +120,7 @@
     <Property Name="urunID" Type="int" />
     <Property Name="perID" Type="int" />
     <Property Name="zimmetTarih" Type="date" />
+    <Property Name="zimmetAdet" Type="int" />
   </EntityType>
   <EntityContainer Name="StokDBModelStoreContainer">
     <EntitySet Name="AtikKontrol" EntityType="Self.AtikKontrol" Schema="dbo" store:Type="Tables" />

@@ -13,12 +13,8 @@ namespace FixtureManagmentApp.Views
 {
     public partial class Product : MetroFramework.Forms.MetroForm
     {
-        PersonelController stokController;
-        UrunController urunController;
         public Product()
         {
-            stokController = new PersonelController();
-            urunController = new UrunController();
             InitializeComponent();
             radioEkle.Checked = true;
             this.ControlBox = false;
@@ -32,7 +28,7 @@ namespace FixtureManagmentApp.Views
             bool ekleChecked = radioEkle.Checked ? true : false;
             btnIslem.Text = ekleChecked ? "Ekle" : "Güncelle";
 
-            cmbUrunTuru.DataSource = urunController.UrunTipiListesi();
+            cmbUrunTuru.DataSource = UrunController.Instance.UrunTipiListesi();
         }
 
         private void cbYeniUrunTuru_CheckedChanged(object sender, EventArgs e)
@@ -48,14 +44,16 @@ namespace FixtureManagmentApp.Views
             string msg;
             if (ekleChecked)
             {
-                msg=urunController.UrunEkle(new ViewModels.UrunGridView { UrunAd = txtUrunAdi.Text, UrunOzellik = txtUrunOzellik.Text, UrunTur = urunTuru });      
+                msg = UrunController.Instance.UrunEkle(new ViewModels.UrunGridView { UrunAd = txtUrunAdi.Text, UrunOzellik = txtUrunOzellik.Text, UrunTur = urunTuru });      
             }
             else
             {
-                msg = urunController.UrunGuncelle(new ViewModels.UrunGridView { UrunAd = txtUrunAdi.Text, UrunOzellik = txtUrunOzellik.Text, UrunTur = urunTuru });
+                msg = UrunController.Instance.UrunGuncelle(new ViewModels.UrunGridView { UrunAd = txtUrunAdi.Text, UrunOzellik = txtUrunOzellik.Text, UrunTur = urunTuru });
             }
             MetroFramework.MetroMessageBox.Show(this, msg, " ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            int selectedRow = gridUrun.CurrentRow.Index;
             GridGuncelle();
+            gridUrun.Rows[selectedRow].Selected = true;
         }
 
         private void gridUrun_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -67,7 +65,7 @@ namespace FixtureManagmentApp.Views
 
         void GridGuncelle()
         {
-            gridUrun.DataSource = urunController.UrunListesi();
+            gridUrun.DataSource = UrunController.Instance.UrunListesi();
         }
     }
 }

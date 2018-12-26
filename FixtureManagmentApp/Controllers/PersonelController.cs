@@ -13,14 +13,10 @@ namespace FixtureManagmentApp.Controllers
     {
         #region Singleton
         private static PersonelController instance;
-        public static PersonelController Instance
-        {
-            get
-            {
-                if (instance == null) instance = new PersonelController();
-                return instance;
-            }
-        }
+
+        private PersonelController() { }
+
+        public static PersonelController Instance { get  { if (instance == null) instance = new PersonelController(); return instance; } }
         #endregion
 
         public bool GirisYap(LoginView loginView)
@@ -109,6 +105,14 @@ namespace FixtureManagmentApp.Controllers
                             CikisTarih = per.perIsCikis,
                             TCNo = per.perTCNo
                         }).ToList<PersonelGridView>();
+            }
+        }
+
+        public int KullaniciIDBul(string perAd)
+        {
+            using (StokDBEntities stokDB = new StokDBEntities())
+            {
+                return (stokDB.Personels.FirstOrDefault(x => x.perIsim == perAd).perID);
             }
         }
 

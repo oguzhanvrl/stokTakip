@@ -27,21 +27,15 @@ namespace FixtureManagmentApp.Views
         {
             specialTextbox = SpecialTextbox.Instance;
             auth = Authorization.Instance;
-            string[] tabNames = Authorization.tabNames;
-            if (PersonelController.Instance.KullaniciTipiBul(Authorization.user) == Authorization.StaffTypes.Yönetici)
+            MetroFramework.Forms.MetroForm form = Authorization.Instance.AdminForms(PersonelController.Instance.KullaniciTipiBul(Authorization.user))[0];
+            form.MdiParent = this;
+            form.Dock = DockStyle.Fill;//parent'in içini doldur
+            form.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            form.Show();
+            string[] tabNames = Authorization.Instance.TabControlPageNames(PersonelController.Instance.KullaniciTipiBul(Authorization.user));
+            foreach (string tabName in tabNames)
             {
-                foreach (string tabName in tabNames)
-                {
-                    mTab.TabPages.Add(new TabPage(tabName));
-                }
-                MetroFramework.Forms.MetroForm form = Authorization.Forms[mTab.SelectedIndex];
-            }
-            else
-            {
-                for (int i = 0; i < 3; i++)
-                {
-                    mTab.TabPages.Add(new TabPage(tabNames[i]));
-                }
+                mTab.TabPages.Add(new TabPage(tabName));
             }
         }
 
@@ -67,7 +61,7 @@ namespace FixtureManagmentApp.Views
 
             try
             {
-                Form form = Authorization.Forms[mTab.SelectedIndex];
+                MetroFramework.Forms.MetroForm form = Authorization.Instance.AdminForms(PersonelController.Instance.KullaniciTipiBul(Authorization.user))[mTab.SelectedIndex];
                 form.MdiParent = this;
                 form.Dock = DockStyle.Fill;//parent'in içini doldur
                 form.WindowState = System.Windows.Forms.FormWindowState.Maximized;

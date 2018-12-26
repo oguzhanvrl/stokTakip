@@ -9,12 +9,10 @@ namespace FixtureManagmentApp.FormRestrictions
     public class Authorization
     {
         private static Authorization inst = null;
-        public static string[] tabNames { get; set; }
         public static int user { get; set; }
 
         private Authorization()
         {
-            tabNames = SetTabControlPageNames();
         }
 
         public static Authorization Instance
@@ -27,12 +25,19 @@ namespace FixtureManagmentApp.FormRestrictions
             }
         }
 
-        public static MetroFramework.Forms.MetroForm[] Forms
+        public MetroFramework.Forms.MetroForm[] AdminForms(StaffTypes type)
         {
-            get
+            switch (type)
             {
-                return new MetroFramework.Forms.MetroForm[7] { new Views.Form1() , new Views.Staff(), new Views.Product(), new Views.Purchase(),new Views.Inventory(),new Views.Fixture(), new Views.Recycle()};
-            }
+                case StaffTypes.Yönetici:
+                    return new MetroFramework.Forms.MetroForm[7] { new Views.Purchase(), new Views.Inventory(), new Views.Product(), new Views.Fixture(), new Views.Recycle(), new Views.Staff(), new Views.Report() };
+                case StaffTypes.SatınAlma:
+                    return new MetroFramework.Forms.MetroForm[5] { new Views.Purchase(), new Views.Inventory(), new Views.Product(), new Views.Fixture(), new Views.Recycle() };
+                case StaffTypes.BölümŞefi:
+                    return new MetroFramework.Forms.MetroForm[1] {new Views.Report() };
+                default:
+                    return null;
+            }          
         }
 
         public enum TabControlPages
@@ -54,11 +59,22 @@ namespace FixtureManagmentApp.FormRestrictions
             Personel
         };
 
-        private string[] SetTabControlPageNames()
+        public string[] TabControlPageNames(StaffTypes type)
         {
-            //return Enum.GetValues(typeof(TabControlPages)).Cast<int>().Select(x => "       " + x.ToString() + "       ").ToArray();
-            return Enum.GetNames(typeof(TabControlPages)).Select(x => "       " + x.ToString() + "       ").ToArray();
+            switch (type)
+            {
+                case StaffTypes.Yönetici:
+                    return Enum.GetNames(typeof(TabControlPages)).Select(x => "       " + x.ToString() + "       ").ToArray();
+                case StaffTypes.SatınAlma:
+                    return Enum.GetNames(typeof(TabControlPages)).Select(x => "       " + x.ToString() + "       ").Take(5).ToArray();
+                case StaffTypes.BölümŞefi:
+                    return new string[1] { "Rapor" };
+                default:
+                    return null;
+            }
+            
         }
+       
 
     }
 }

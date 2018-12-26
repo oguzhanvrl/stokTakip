@@ -186,6 +186,12 @@
     <Compile Include="Views\Recycle.Designer.cs">
       <DependentUpon>Recycle.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Report.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Report.Designer.cs">
+      <DependentUpon>Report.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Staff.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -224,6 +230,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Recycle.resx">
       <DependentUpon>Recycle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Report.resx">
+      <DependentUpon>Report.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Staff.resx">
       <DependentUpon>Staff.cs</DependentUpon>

@@ -33,20 +33,22 @@ namespace FixtureManagmentApp.FormRestrictions
 
         public bool IsNotNumeric(char key)
         {
-            bool isNotNumeric = !char.IsControl(key) && !char.IsDigit(key) ? true : false;
+            bool isNotNumeric = key != '\b'&&!char.IsControl(key) && !char.IsDigit(key) ? true : false;
             return isNotNumeric;
         }
 
         public bool IsNotFloat(char key)
         {
-            if (IsNotNumeric(key) && key != ',')
+            if (IsNotNumeric(key) && key != '.' && key != '\b')
                 return true;
-            bool isNotFloat = (key == ',') && (mtbox.Text.IndexOf(',') > -1) ? true : false;
+            bool isNotFloat = (key == '.') && (mtbox.Text.IndexOf('.') > -1) ? true : false;
             return isNotFloat;
         }
 
-        public bool IsOverLimit(int limit)
+        public bool IsOverLimit(int limit,char key)
         {
+            if (key == '\b')
+                return false;
             bool isOverLimit = mtbox.Text.Length >= limit ? true : false;
             return isOverLimit;
         }

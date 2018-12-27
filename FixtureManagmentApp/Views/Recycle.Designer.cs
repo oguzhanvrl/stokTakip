@@ -52,7 +52,7 @@
             // 
             this.radioCıkar.AutoSize = true;
             this.radioCıkar.FontSize = MetroFramework.MetroCheckBoxSize.Tall;
-            this.radioCıkar.Location = new System.Drawing.Point(397, 24);
+            this.radioCıkar.Location = new System.Drawing.Point(964, 63);
             this.radioCıkar.Name = "radioCıkar";
             this.radioCıkar.Size = new System.Drawing.Size(120, 25);
             this.radioCıkar.TabIndex = 83;
@@ -63,7 +63,7 @@
             // 
             this.radioGeriGonder.AutoSize = true;
             this.radioGeriGonder.FontSize = MetroFramework.MetroCheckBoxSize.Tall;
-            this.radioGeriGonder.Location = new System.Drawing.Point(21, 24);
+            this.radioGeriGonder.Location = new System.Drawing.Point(588, 63);
             this.radioGeriGonder.Name = "radioGeriGonder";
             this.radioGeriGonder.Size = new System.Drawing.Size(256, 25);
             this.radioGeriGonder.TabIndex = 82;

@@ -61,14 +61,14 @@ namespace FixtureManagmentApp.Views
         private void txtAdet_KeyPress(object sender, KeyPressEventArgs e)
         {
             SpecialTextbox.Instance.ChangeCurrentTextbox(txtAdet);
-            if (SpecialTextbox.Instance.IsOverLimit(9) || SpecialTextbox.Instance.IsNotNumeric(e.KeyChar))
+            if (SpecialTextbox.Instance.IsOverLimit(9, e.KeyChar) || SpecialTextbox.Instance.IsNotNumeric(e.KeyChar))
                 e.Handled = true;
         }
 
         private void txtNot_KeyPress(object sender, KeyPressEventArgs e)
         {
             SpecialTextbox.Instance.ChangeCurrentTextbox(txtAdet);
-            e.Handled = SpecialTextbox.Instance.IsOverLimit(100);
+            e.Handled = SpecialTextbox.Instance.IsOverLimit(100, e.KeyChar);
         }
 
         private void btnIslem_Click_1(object sender, EventArgs e)

@@ -53,15 +53,12 @@ namespace FixtureManagmentApp.Views
             {
                 cbAktif.Checked = true;
                 cbAktif.Enabled = false;
-
-                lblKul.Visible = false;
             }
             else
             {
                 cbAktif.Checked = false;
                 cbAktif.Enabled = true;
-
-                lblKul.Visible = true;
+                panel.Visible = false;
             }       
         }
 
@@ -82,21 +79,21 @@ namespace FixtureManagmentApp.Views
         private void txtTC_KeyPress(object sender, KeyPressEventArgs e)
         {
             SpecialTextbox.Instance.ChangeCurrentTextbox(txtTC);
-            if(SpecialTextbox.Instance.IsOverLimit(11)|| SpecialTextbox.Instance.IsNotNumeric(e.KeyChar))
+            if(SpecialTextbox.Instance.IsOverLimit(11, e.KeyChar) || SpecialTextbox.Instance.IsNotNumeric(e.KeyChar))
                 e.Handled = true;
         }
 
         private void txtKul_KeyPress(object sender, KeyPressEventArgs e)
         {
             SpecialTextbox.Instance.ChangeCurrentTextbox(txtTC);
-            if (SpecialTextbox.Instance.IsOverLimit(20) || SpecialTextbox.Instance.IsIDPW(e.KeyChar))
+            if (SpecialTextbox.Instance.IsOverLimit(20, e.KeyChar) || SpecialTextbox.Instance.IsIDPW(e.KeyChar))
                 e.Handled = true;
         }
 
         private void txtSifre_KeyPress(object sender, KeyPressEventArgs e)
         {
             SpecialTextbox.Instance.ChangeCurrentTextbox(txtSifre);
-            if (SpecialTextbox.Instance.IsOverLimit(20) || SpecialTextbox.Instance.IsIDPW(e.KeyChar))
+            if (SpecialTextbox.Instance.IsOverLimit(20, e.KeyChar) || SpecialTextbox.Instance.IsIDPW(e.KeyChar))
                 e.Handled = true;
         }
 
@@ -113,7 +110,7 @@ namespace FixtureManagmentApp.Views
         private void txtAdSoyad_KeyPress(object sender, KeyPressEventArgs e)
         {
             SpecialTextbox.Instance.ChangeCurrentTextbox(txtAdSoyad);
-            if (SpecialTextbox.Instance.IsOverLimit(50) || SpecialTextbox.Instance.IsNotLetter(e.KeyChar))
+            if (SpecialTextbox.Instance.IsOverLimit(50, e.KeyChar) || SpecialTextbox.Instance.IsNotLetter(e.KeyChar))
                 e.Handled = true;
         }
 
@@ -169,6 +166,7 @@ namespace FixtureManagmentApp.Views
                 {
                     using (StokDBEntities stokDB = new StokDBEntities())
                     {
+                       
                         Personel per = stokDB.Personels.FirstOrDefault(p => p.perTCNo == txtTC.Text);
                         if (per != null)
                         {
@@ -215,13 +213,17 @@ namespace FixtureManagmentApp.Views
 
         private void cmbPerTip_SelectedIndexChanged_1(object sender, EventArgs e)
         {
-            if (cmbPerTip.SelectedIndex == 0 || cmbPerTip.SelectedIndex == 1)
+            if (!radioEkle.Checked)
+            {
+                panel.Visible = false;
+            }
+            if (cmbPerTip.SelectedIndex == 0 || cmbPerTip.SelectedIndex == 1 && radioEkle.Checked)
             {
                 panel.Visible = true;
                 cmbDepartman.Enabled = false;
                 cmbDepartman.SelectedIndex = cmbPerTip.SelectedIndex;
             }
-            else if (cmbPerTip.SelectedIndex == 2)
+            else if (cmbPerTip.SelectedIndex == 2 && radioEkle.Checked)
             {
                 panel.Visible = true;
                 cmbDepartman.Enabled = true;

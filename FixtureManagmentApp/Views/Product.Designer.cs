@@ -50,7 +50,7 @@
             // 
             this.radioGuncelle.AutoSize = true;
             this.radioGuncelle.FontSize = MetroFramework.MetroCheckBoxSize.Tall;
-            this.radioGuncelle.Location = new System.Drawing.Point(192, 31);
+            this.radioGuncelle.Location = new System.Drawing.Point(1045, 43);
             this.radioGuncelle.Name = "radioGuncelle";
             this.radioGuncelle.Size = new System.Drawing.Size(149, 25);
             this.radioGuncelle.TabIndex = 15;
@@ -61,7 +61,7 @@
             // 
             this.radioEkle.AutoSize = true;
             this.radioEkle.FontSize = MetroFramework.MetroCheckBoxSize.Tall;
-            this.radioEkle.Location = new System.Drawing.Point(25, 31);
+            this.radioEkle.Location = new System.Drawing.Point(878, 43);
             this.radioEkle.Name = "radioEkle";
             this.radioEkle.Size = new System.Drawing.Size(109, 25);
             this.radioEkle.TabIndex = 14;
@@ -120,6 +120,7 @@
             // 
             // btnIslem
             // 
+            this.btnIslem.BackColor = System.Drawing.Color.White;
             this.btnIslem.FontSize = MetroFramework.MetroButtonSize.Tall;
             this.btnIslem.Location = new System.Drawing.Point(1119, 180);
             this.btnIslem.Name = "btnIslem";

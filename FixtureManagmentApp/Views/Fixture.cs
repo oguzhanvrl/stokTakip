@@ -70,7 +70,7 @@ namespace FixtureManagmentApp.Views
         private void txtAdet_KeyPress(object sender, KeyPressEventArgs e)
         {
             SpecialTextbox.Instance.ChangeCurrentTextbox(txtAdet);
-            if (SpecialTextbox.Instance.IsNotNumeric(e.KeyChar) || SpecialTextbox.Instance.IsOverLimit(9))
+            if (SpecialTextbox.Instance.IsNotNumeric(e.KeyChar) || SpecialTextbox.Instance.IsOverLimit(9,e.KeyChar))
                 e.Handled = true;
         }
 

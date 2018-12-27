@@ -34,6 +34,7 @@
             this.txtSifre = new MetroFramework.Controls.MetroTextBox();
             this.txtKullaniciAdi = new MetroFramework.Controls.MetroTextBox();
             this.btnGiris = new MetroFramework.Controls.MetroButton();
+            this.lblProgram = new MetroFramework.Controls.MetroLabel();
             this.SuspendLayout();
             // 
             // lbSifreyiGoster
@@ -150,11 +151,23 @@
             this.btnGiris.Text = "Giriş Yap";
             this.btnGiris.UseSelectable = true;
             // 
+            // lblProgram
+            // 
+            this.lblProgram.AutoSize = true;
+            this.lblProgram.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.lblProgram.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.lblProgram.Location = new System.Drawing.Point(247, 121);
+            this.lblProgram.Name = "lblProgram";
+            this.lblProgram.Size = new System.Drawing.Size(245, 25);
+            this.lblProgram.TabIndex = 14;
+            this.lblProgram.Text = "DEMİRBAŞ YÖNETİM SİSTEMİ";
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 600);
+            this.Controls.Add(this.lblProgram);
             this.Controls.Add(this.lbSifreyiGoster);
             this.Controls.Add(this.lblSifre);
             this.Controls.Add(this.lblKullaniciAdi);
@@ -178,5 +191,6 @@
         private MetroFramework.Controls.MetroTextBox txtSifre;
         private MetroFramework.Controls.MetroTextBox txtKullaniciAdi;
         private MetroFramework.Controls.MetroButton btnGiris;
+        private MetroFramework.Controls.MetroLabel lblProgram;
     }
 }

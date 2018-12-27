@@ -53,7 +53,7 @@
             this.IsMdiContainer = true;
             this.KeyPreview = true;
             this.Name = "MainScreen";
-            this.Text = "Fixture Managment App";
+            this.Text = "Demirbaş Yönetim Sistemi";
             this.TransparencyKey = System.Drawing.Color.Empty;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainScreen_FormClosing);
             this.Load += new System.EventHandler(this.MainScreen_Load);

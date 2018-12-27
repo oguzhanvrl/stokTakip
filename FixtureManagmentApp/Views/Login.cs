@@ -18,8 +18,6 @@ namespace FixtureManagmentApp.Views
         public Login()
         {   
             InitializeComponent();
-            txtKullaniciAdi.Text = "admin";
-            txtSifre .Text= "123456789";
         }
 
         private void Login_Load(object sender, EventArgs e)
@@ -78,14 +76,14 @@ namespace FixtureManagmentApp.Views
         private void txtKullaniciAdi_KeyPress(object sender, KeyPressEventArgs e)
         {
             SpecialTextbox.Instance.ChangeCurrentTextbox(txtKullaniciAdi);
-            if (SpecialTextbox.Instance.IsOverLimit(20)|| SpecialTextbox.Instance.IsIDPW(e.KeyChar))
+            if (SpecialTextbox.Instance.IsOverLimit(20, e.KeyChar) || SpecialTextbox.Instance.IsIDPW(e.KeyChar))
             e.Handled = true;
         }
 
         private void txtSifre_KeyPress(object sender, KeyPressEventArgs e)
         {
             SpecialTextbox.Instance.ChangeCurrentTextbox(txtSifre);
-            if (SpecialTextbox.Instance.IsOverLimit(20) || SpecialTextbox.Instance.IsIDPW(e.KeyChar))
+            if (SpecialTextbox.Instance.IsOverLimit(20, e.KeyChar) || SpecialTextbox.Instance.IsIDPW(e.KeyChar))
                 e.Handled = true;
         }
     }

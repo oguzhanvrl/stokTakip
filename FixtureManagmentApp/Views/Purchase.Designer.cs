@@ -54,7 +54,7 @@
             // 
             this.radioGuncelle.AutoSize = true;
             this.radioGuncelle.FontSize = MetroFramework.MetroCheckBoxSize.Tall;
-            this.radioGuncelle.Location = new System.Drawing.Point(301, 28);
+            this.radioGuncelle.Location = new System.Drawing.Point(846, 50);
             this.radioGuncelle.Name = "radioGuncelle";
             this.radioGuncelle.Size = new System.Drawing.Size(223, 25);
             this.radioGuncelle.TabIndex = 35;
@@ -65,7 +65,7 @@
             // 
             this.radioEkle.AutoSize = true;
             this.radioEkle.FontSize = MetroFramework.MetroCheckBoxSize.Tall;
-            this.radioEkle.Location = new System.Drawing.Point(24, 28);
+            this.radioEkle.Location = new System.Drawing.Point(569, 50);
             this.radioEkle.Name = "radioEkle";
             this.radioEkle.Size = new System.Drawing.Size(197, 25);
             this.radioEkle.TabIndex = 34;
@@ -216,7 +216,6 @@
             this.txtPer.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
             this.txtPer.CustomButton.UseSelectable = true;
             this.txtPer.CustomButton.Visible = false;
-            this.txtPer.Enabled = false;
             this.txtPer.Lines = new string[0];
             this.txtPer.Location = new System.Drawing.Point(383, 187);
             this.txtPer.MaxLength = 32767;

@@ -55,19 +55,19 @@ namespace FixtureManagmentApp.Views
         private void txtUrunAdi_KeyPress(object sender, KeyPressEventArgs e)
         {
             SpecialTextbox.Instance.ChangeCurrentTextbox(txtUrunAdi);
-            e.Handled = SpecialTextbox.Instance.IsOverLimit(50);
+            e.Handled = SpecialTextbox.Instance.IsOverLimit(50, e.KeyChar);
         }
 
         private void txtYeniUrunTuru_KeyPress(object sender, KeyPressEventArgs e)
         {
             SpecialTextbox.Instance.ChangeCurrentTextbox(txtYeniUrunTuru);
-            e.Handled = SpecialTextbox.Instance.IsOverLimit(30);
+            e.Handled = SpecialTextbox.Instance.IsOverLimit(30, e.KeyChar);
         }
 
         private void txtUrunOzellik_KeyPress(object sender, KeyPressEventArgs e)
         {
             SpecialTextbox.Instance.ChangeCurrentTextbox(txtUrunOzellik);
-            e.Handled = SpecialTextbox.Instance.IsOverLimit(50);
+            e.Handled = SpecialTextbox.Instance.IsOverLimit(50, e.KeyChar);
         }
 
         private void cbYeniUrunTuru_CheckedChanged_1(object sender, EventArgs e)

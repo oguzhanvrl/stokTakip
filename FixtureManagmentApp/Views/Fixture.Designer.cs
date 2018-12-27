@@ -99,7 +99,7 @@
             // 
             this.radioCıkar.AutoSize = true;
             this.radioCıkar.FontSize = MetroFramework.MetroCheckBoxSize.Tall;
-            this.radioCıkar.Location = new System.Drawing.Point(349, 30);
+            this.radioCıkar.Location = new System.Drawing.Point(979, 63);
             this.radioCıkar.Name = "radioCıkar";
             this.radioCıkar.Size = new System.Drawing.Size(313, 25);
             this.radioCıkar.TabIndex = 63;
@@ -110,7 +110,7 @@
             // 
             this.radioEkle.AutoSize = true;
             this.radioEkle.FontSize = MetroFramework.MetroCheckBoxSize.Tall;
-            this.radioEkle.Location = new System.Drawing.Point(34, 30);
+            this.radioEkle.Location = new System.Drawing.Point(664, 63);
             this.radioEkle.Name = "radioEkle";
             this.radioEkle.Size = new System.Drawing.Size(211, 25);
             this.radioEkle.TabIndex = 62;

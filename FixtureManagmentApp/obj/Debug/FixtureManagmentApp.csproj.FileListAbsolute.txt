@@ -52,7 +52,6 @@ C:\Users\MONSTER\Desktop\yazilim sinama proje\stokTakip\FixtureManagmentApp\bin\
 C:\Users\MONSTER\Desktop\yazilim sinama proje\stokTakip\FixtureManagmentApp\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\MONSTER\Desktop\yazilim sinama proje\stokTakip\FixtureManagmentApp\obj\Debug\FixtureManagmentApp.csprojAssemblyReference.cache
 C:\Users\MONSTER\Desktop\yazilim sinama proje\stokTakip\FixtureManagmentApp\obj\Debug\FixtureManagmentApp.Properties.Resources.resources
-C:\Users\MONSTER\Desktop\yazilim sinama proje\stokTakip\FixtureManagmentApp\obj\Debug\FixtureManagmentApp.Views.Form1.resources
 C:\Users\MONSTER\Desktop\yazilim sinama proje\stokTakip\FixtureManagmentApp\obj\Debug\FixtureManagmentApp.Views.Login.resources
 C:\Users\MONSTER\Desktop\yazilim sinama proje\stokTakip\FixtureManagmentApp\obj\Debug\FixtureManagmentApp.Views.MainScreen.resources
 C:\Users\MONSTER\Desktop\yazilim sinama proje\stokTakip\FixtureManagmentApp\obj\Debug\FixtureManagmentApp.Views.Product.resources

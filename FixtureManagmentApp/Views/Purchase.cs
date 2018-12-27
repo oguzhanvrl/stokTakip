@@ -21,6 +21,8 @@ namespace FixtureManagmentApp.Views
             GridGuncelle();
             radioEkle.Checked = true;
             gridSatinAlma.AllowUserToResizeColumns = false;
+            txtPer.Text = PersonelController.Instance.KullaniciBul(Authorization.user).perIsim;
+            txtPer.Enabled = false;
             gridSatinAlma.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             gridSatinAlma.Columns[gridSatinAlma.ColumnCount - 1].Visible = false; // saID gizlendi
         }
@@ -44,12 +46,10 @@ namespace FixtureManagmentApp.Views
             if (ekleChecked)
             {
                 cmbUrunler.Enabled = true;
-                txtPer.Enabled = true;
             }
             else
             {
                 cmbUrunler.Enabled = false;
-                txtPer.Enabled = false;
             }
         }
 
@@ -69,29 +69,31 @@ namespace FixtureManagmentApp.Views
         private void txtBirimFiyat_KeyPress(object sender, KeyPressEventArgs e)
         {
             SpecialTextbox.Instance.ChangeCurrentTextbox(txtBirimFiyat);
-            if (SpecialTextbox.Instance.IsOverLimit(10) || SpecialTextbox.Instance.IsNotNumeric(e.KeyChar))
+            if (SpecialTextbox.Instance.IsOverLimit(10, e.KeyChar) || SpecialTextbox.Instance.IsNotFloat(e.KeyChar))
                 e.Handled = true;
         }
 
         private void txtAdet_KeyPress(object sender, KeyPressEventArgs e)
         {
             SpecialTextbox.Instance.ChangeCurrentTextbox(txtAdet);
-            if(SpecialTextbox.Instance.IsOverLimit(9) || SpecialTextbox.Instance.IsNotNumeric(e.KeyChar))
+            if(SpecialTextbox.Instance.IsOverLimit(9, e.KeyChar) || SpecialTextbox.Instance.IsNotNumeric(e.KeyChar))
                 e.Handled =true ;
         }
 
         private void txtFirma_KeyPress(object sender, KeyPressEventArgs e)
         {
             SpecialTextbox.Instance.ChangeCurrentTextbox(txtFirma);
-            e.Handled = SpecialTextbox.Instance.IsOverLimit(50);
+            e.Handled = SpecialTextbox.Instance.IsOverLimit(50, e.KeyChar);
         }
 
         private void btnIslem_Click_1(object sender, EventArgs e)
         {
             bool ekleChecked = radioEkle.Checked ? true : false;
             string msg="";
+            if (txtBirimFiyat.Text == ".") txtBirimFiyat.Text = "";
             if (EmptyOrNullChecker.Instance.NotNullableControls(this))
                 msg = "Lütfen alanları eksiksiz doldurunuz.";
+           
             else if (ekleChecked)
             {
                 msg = SatinAlmaController.Instance.SatinAl(new ViewModels.SatinAlmaGridView

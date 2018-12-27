@@ -28,12 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gridZimmet = new MetroFramework.Controls.MetroGrid();
-            this.lblAraPer = new MetroFramework.Controls.MetroLabel();
-            this.txtAra = new MetroFramework.Controls.MetroTextBox();
             this.radioCıkar = new MetroFramework.Controls.MetroRadioButton();
             this.radioEkle = new MetroFramework.Controls.MetroRadioButton();
             this.txtAdet = new MetroFramework.Controls.MetroTextBox();
@@ -57,23 +55,23 @@
             this.gridZimmet.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.gridZimmet.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.gridZimmet.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridZimmet.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridZimmet.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.gridZimmet.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gridZimmet.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gridZimmet.DefaultCellStyle = dataGridViewCellStyle2;
             this.gridZimmet.EnableHeadersVisualStyles = false;
             this.gridZimmet.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.gridZimmet.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -82,61 +80,20 @@
             this.gridZimmet.Name = "gridZimmet";
             this.gridZimmet.ReadOnly = true;
             this.gridZimmet.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridZimmet.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridZimmet.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.gridZimmet.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.gridZimmet.RowTemplate.Height = 24;
             this.gridZimmet.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridZimmet.Size = new System.Drawing.Size(1022, 504);
             this.gridZimmet.TabIndex = 55;
             this.gridZimmet.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridPer_CellClick);
-            // 
-            // lblAraPer
-            // 
-            this.lblAraPer.AutoSize = true;
-            this.lblAraPer.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.lblAraPer.Location = new System.Drawing.Point(776, 30);
-            this.lblAraPer.Name = "lblAraPer";
-            this.lblAraPer.Size = new System.Drawing.Size(154, 25);
-            this.lblAraPer.TabIndex = 60;
-            this.lblAraPer.Text = "Ürün İsimiyle Ara :";
-            // 
-            // txtAra
-            // 
-            // 
-            // 
-            // 
-            this.txtAra.CustomButton.Image = null;
-            this.txtAra.CustomButton.Location = new System.Drawing.Point(171, 2);
-            this.txtAra.CustomButton.Name = "";
-            this.txtAra.CustomButton.Size = new System.Drawing.Size(35, 35);
-            this.txtAra.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txtAra.CustomButton.TabIndex = 1;
-            this.txtAra.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.txtAra.CustomButton.UseSelectable = true;
-            this.txtAra.CustomButton.Visible = false;
-            this.txtAra.FontSize = MetroFramework.MetroTextBoxSize.Tall;
-            this.txtAra.Lines = new string[0];
-            this.txtAra.Location = new System.Drawing.Point(1056, 15);
-            this.txtAra.MaxLength = 32767;
-            this.txtAra.Name = "txtAra";
-            this.txtAra.PasswordChar = '\0';
-            this.txtAra.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtAra.SelectedText = "";
-            this.txtAra.SelectionLength = 0;
-            this.txtAra.SelectionStart = 0;
-            this.txtAra.ShortcutsEnabled = true;
-            this.txtAra.Size = new System.Drawing.Size(209, 40);
-            this.txtAra.TabIndex = 59;
-            this.txtAra.UseSelectable = true;
-            this.txtAra.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.txtAra.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
             // radioCıkar
             // 
@@ -288,8 +245,6 @@
             this.Controls.Add(this.cmbUrunler);
             this.Controls.Add(this.radioCıkar);
             this.Controls.Add(this.radioEkle);
-            this.Controls.Add(this.lblAraPer);
-            this.Controls.Add(this.txtAra);
             this.Controls.Add(this.gridZimmet);
             this.Name = "Fixture";
             this.Style = MetroFramework.MetroColorStyle.White;
@@ -301,8 +256,6 @@
 
         #endregion
         private MetroFramework.Controls.MetroGrid gridZimmet;
-        private MetroFramework.Controls.MetroLabel lblAraPer;
-        private MetroFramework.Controls.MetroTextBox txtAra;
         private MetroFramework.Controls.MetroRadioButton radioCıkar;
         private MetroFramework.Controls.MetroRadioButton radioEkle;
         private MetroFramework.Controls.MetroTextBox txtAdet;

@@ -37,6 +37,7 @@
             this.radioBolum = new MetroFramework.Controls.MetroRadioButton();
             this.radioKisi = new MetroFramework.Controls.MetroRadioButton();
             this.btnIslem = new MetroFramework.Controls.MetroButton();
+            this.txtBolum = new MetroFramework.Controls.MetroTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.gridRapor)).BeginInit();
             this.SuspendLayout();
             // 
@@ -134,13 +135,44 @@
             // btnIslem
             // 
             this.btnIslem.FontSize = MetroFramework.MetroButtonSize.Tall;
-            this.btnIslem.Location = new System.Drawing.Point(1084, 156);
+            this.btnIslem.Location = new System.Drawing.Point(988, 156);
             this.btnIslem.Name = "btnIslem";
-            this.btnIslem.Size = new System.Drawing.Size(240, 52);
+            this.btnIslem.Size = new System.Drawing.Size(336, 52);
             this.btnIslem.TabIndex = 85;
             this.btnIslem.Text = "Bölüme Göre Rapor Çıktısı";
             this.btnIslem.UseSelectable = true;
             this.btnIslem.Click += new System.EventHandler(this.btnIslem_Click);
+            // 
+            // txtBolum
+            // 
+            // 
+            // 
+            // 
+            this.txtBolum.CustomButton.Image = null;
+            this.txtBolum.CustomButton.Location = new System.Drawing.Point(194, 2);
+            this.txtBolum.CustomButton.Name = "";
+            this.txtBolum.CustomButton.Size = new System.Drawing.Size(25, 25);
+            this.txtBolum.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtBolum.CustomButton.TabIndex = 1;
+            this.txtBolum.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtBolum.CustomButton.UseSelectable = true;
+            this.txtBolum.CustomButton.Visible = false;
+            this.txtBolum.Enabled = false;
+            this.txtBolum.Lines = new string[0];
+            this.txtBolum.Location = new System.Drawing.Point(1088, 103);
+            this.txtBolum.MaxLength = 32767;
+            this.txtBolum.Name = "txtBolum";
+            this.txtBolum.PasswordChar = '\0';
+            this.txtBolum.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtBolum.SelectedText = "";
+            this.txtBolum.SelectionLength = 0;
+            this.txtBolum.SelectionStart = 0;
+            this.txtBolum.ShortcutsEnabled = true;
+            this.txtBolum.Size = new System.Drawing.Size(222, 30);
+            this.txtBolum.TabIndex = 91;
+            this.txtBolum.UseSelectable = true;
+            this.txtBolum.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txtBolum.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
             // Report
             // 
@@ -148,6 +180,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1347, 772);
             this.ControlBox = false;
+            this.Controls.Add(this.txtBolum);
             this.Controls.Add(this.radioKisi);
             this.Controls.Add(this.radioBolum);
             this.Controls.Add(this.lblPer);
@@ -171,5 +204,6 @@
         private MetroFramework.Controls.MetroRadioButton radioBolum;
         private MetroFramework.Controls.MetroRadioButton radioKisi;
         private MetroFramework.Controls.MetroButton btnIslem;
+        private MetroFramework.Controls.MetroTextBox txtBolum;
     }
 }

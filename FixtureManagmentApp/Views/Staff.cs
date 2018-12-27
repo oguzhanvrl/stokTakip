@@ -19,7 +19,6 @@ namespace FixtureManagmentApp.Views
         {
             InitializeComponent();
             dateGiris.MaxDate = DateTime.Now;
-            dateCikis.MaxDate = DateTime.Now;
             radioEkle.Checked = true;
             GridGuncelle();
             gridPersonel.AllowUserToResizeColumns = false;
@@ -34,35 +33,11 @@ namespace FixtureManagmentApp.Views
             gridPersonel.DataSource = PersonelController.Instance.PersonelGridListesi();
         }
 
-        private void dateGiris_ValueChanged(object sender, EventArgs e)
-        {
-            if (dateGiris.Value.ToShortDateString() == DateTime.Now.Date.ToShortDateString())
-            {
-                MessageBox.Show(dateGiris.Value.ToShortDateString());//tarih dönüşümü
-            }
-        }
-
         private void dateGiris_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {
                 dateGiris.MaxDate = DateTime.Now;//tarih seçme için tıklandığında en fazla bugünün tarihini girebilir
-            }
-        }
-
-        private void dateCikis_ValueChanged(object sender, EventArgs e)
-        {
-            if (dateCikis.Value.ToShortDateString() == DateTime.Now.Date.ToShortDateString())
-            {
-                MessageBox.Show(dateCikis.Value.ToShortDateString());//tarih dönüşümü
-            }
-        }
-
-        private void dateCikis_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                dateCikis.MaxDate = DateTime.Now;//tarih seçme için tıklandığında en fazla bugünün tarihini girebilir
             }
         }
 
@@ -80,16 +55,14 @@ namespace FixtureManagmentApp.Views
                 cbAktif.Checked = true;
                 cbAktif.Enabled = false;
 
-                dateCikis.Visible = false;
-                lblCikis.Visible = false;
+                lblKul.Visible = false;
             }
             else
             {
                 cbAktif.Checked = false;
                 cbAktif.Enabled = true;
 
-                dateCikis.Visible = true;
-                lblCikis.Visible = true;
+                lblKul.Visible = true;
             }       
                
 
@@ -116,6 +89,16 @@ namespace FixtureManagmentApp.Views
                         per.perTCNo = txtTC.Text;
 
                         stokDB.Personels.Add(per);
+                        MessageBox.Show("Personel Kaydı Başarıyla Oluşturuldu");
+
+                        Kullanici kullanici = new Kullanici();
+                        kullanici.perID = per.perID;
+                        kullanici.kullaniciAdi = txtKul.Text;
+                        kullanici.kullaniciSifre = txtSifre.Text;
+
+                        stokDB.Kullanicis.Add(kullanici);
+                        MessageBox.Show("Kullanıcı Giriş Kimliği Oluşturuldu");
+
                         stokDB.SaveChanges();
                     }
                 }
@@ -142,7 +125,6 @@ namespace FixtureManagmentApp.Views
                                 per.perTipID = PersonelController.Instance.KullaniTipIDBul(cmbPerTip.Text);
                                 per.perAktif = cbAktif.Checked;
                                 per.perIseGiris = dateGiris.Value.Date;
-                                per.perIsCikis = dateCikis.Value.Date;
 
                                 stokDB.SaveChanges();                               
                                 MessageBox.Show("Personel Başarıyla Güncellendi.");
@@ -180,6 +162,12 @@ namespace FixtureManagmentApp.Views
                 dateGiris.Value = (DateTime)gridPersonel.CurrentRow.Cells[5].Value;
                 //dateCikis.Value = (DateTime)gridPersonel.CurrentRow.Cells[6].Value;
             }
+        }
+
+        private void cmbPerTip_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            panel.Visible = false;
+            if (!cmbPerTip.SelectedItem.ToString().Contains("Personel") && radioEkle.Checked) panel.Visible = true;
         }
     }
 }

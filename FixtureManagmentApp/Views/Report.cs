@@ -32,12 +32,15 @@ namespace FixtureManagmentApp.Views
 
                 if (bolumChecked)
                 {
-                    cmbAra.Enabled = false;
-                    lblPer.Text = stokDB.Bolumlers.FirstOrDefault(x => x.bolumID == stokDB.Personels.FirstOrDefault(y => y.perID == Authorization.user).bolumID).bolumAdi;
+                    txtBolum.Visible = true;
+                    cmbAra.Visible = false;
+                    txtBolum.Enabled = false;
+                    txtBolum.Text = stokDB.Bolumlers.FirstOrDefault(x => x.bolumID == stokDB.Personels.FirstOrDefault(y => y.perID == Authorization.user).bolumID).bolumAdi;
                 }
                 else
                 {
-                   cmbAra.Enabled = true;
+                    txtBolum.Visible = false;
+                    cmbAra.Visible = true;
                    cmbAra.DataSource = (from p in stokDB.Personels select p.perIsim).ToList();
                 }
             }
@@ -47,7 +50,7 @@ namespace FixtureManagmentApp.Views
         {
             DGVPrinter printer = new DGVPrinter();
             printer.Title = "Zimmet Döküm Raporu";
-            printer.SubTitle = cmbAra.SelectedItem.ToString();
+            printer.SubTitle = txtBolum.Text +" >> "+ cmbAra.SelectedItem.ToString();
             printer.SubTitleFormatFlags = StringFormatFlags.LineLimit | StringFormatFlags.NoClip;
             printer.PageNumbers = true;
             printer.PageNumberInHeader = false;
@@ -66,25 +69,9 @@ namespace FixtureManagmentApp.Views
                 {
                     gridRapor.DataSource = null;
                     gridRapor.Refresh();
-                    if (radioBolum.Checked)
-                    {
-                        gridRapor.DataSource = (from zim in stokDB.Zimmets
-                                                 join urn in stokDB.Urunlers on zim.urunID equals urn.urunID
-                                                 join per in stokDB.Personels on zim.perID equals per.perID
-                                                 join bol in stokDB.Bolumlers on per.bolumID equals bol.bolumID
-                                                 where bol.bolumAdi == cmbAra.SelectedItem.ToString()
-
-                                                 select new ViewModels.ZimmetGridView
-                                                 {
-                                                     Personel = per.perIsim,
-                                                     Urun = urn.urunBilgi,
-                                                     ZimmetAdet = zim.zimmetAdet,
-                                                     ZimmetID = zim.zimmetID,
-                                                     ZimmetTarih = zim.zimmetTarih.Value
-                                                 }).ToList();
-                    }
-                    else
-                    {
+                    lblPer.Text = "Bölüm : " + txtBolum.Text + " - Kişi :";
+                    if (!radioBolum.Checked)
+                    {               
                         gridRapor.DataSource = (from zim in stokDB.Zimmets
                                                 join urn in stokDB.Urunlers on zim.urunID equals urn.urunID
                                                 join per in stokDB.Personels on zim.perID equals per.perID

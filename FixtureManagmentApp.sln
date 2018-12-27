@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28307.168
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FixtureManagmentApp", "FixtureManagmentApp\FixtureManagmentApp.csproj", "{8B7EC374-621D-4619-881F-5EE49FBBFBBB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FixtureManagmentApp.Test", "FixtureManagmentApp.Test\FixtureManagmentApp.Test.csproj", "{68D0D314-F932-4855-8587-B0B9A035BF20}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{8B7EC374-621D-4619-881F-5EE49FBBFBBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8B7EC374-621D-4619-881F-5EE49FBBFBBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8B7EC374-621D-4619-881F-5EE49FBBFBBB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{68D0D314-F932-4855-8587-B0B9A035BF20}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68D0D314-F932-4855-8587-B0B9A035BF20}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68D0D314-F932-4855-8587-B0B9A035BF20}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68D0D314-F932-4855-8587-B0B9A035BF20}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

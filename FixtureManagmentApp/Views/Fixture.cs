@@ -1,4 +1,5 @@
 ﻿using FixtureManagmentApp.Controllers;
+using FixtureManagmentApp.FormRestrictions;
 using FixtureManagmentApp.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -22,7 +23,7 @@ namespace FixtureManagmentApp.Views
             this.ControlBox = false;
             GridGuncelle();
             gridZimmet.AllowUserToResizeColumns = false;
-            gridZimmet.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            gridZimmet.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             radioEkle.Checked = true;
             gridZimmet.Columns[gridZimmet.ColumnCount - 1].Visible = false; // saID gizlendi
         }
@@ -41,6 +42,10 @@ namespace FixtureManagmentApp.Views
         public void GridGuncelle()
         {
             gridZimmet.DataSource = ZimmetController.Instance.ZimmetGridListesi();
+            gridZimmet.Columns[0].HeaderText = "Ürün Adı";
+            gridZimmet.Columns[1].HeaderText = "Personel Adı";
+            gridZimmet.Columns[2].HeaderText = "Zimmetlenme Tarihi";
+            gridZimmet.Columns[3].HeaderText = "Zimmetlenmiş Ürün Adedi";
         }
 
         private void radioEkle_CheckedChanged(object sender, EventArgs e)
@@ -62,17 +67,18 @@ namespace FixtureManagmentApp.Views
             }
         }
 
-        private void dateTarih_MouseDown(object sender, MouseEventArgs e)
+        private void txtAdet_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.Button == MouseButtons.Left)
-            {
-                dateTarih.MaxDate = DateTime.Now;//tarih seçme için tıklandığında en fazla bugünün tarihini girebilir
-            }
+            SpecialTextbox.Instance.ChangeCurrentTextbox(txtAdet);
+            if (SpecialTextbox.Instance.IsNotNumeric(e.KeyChar) || SpecialTextbox.Instance.IsOverLimit(9))
+                e.Handled = true;
         }
 
-        private void btnIslem_Click(object sender, EventArgs e)
+        private void btnIslem_Click_1(object sender, EventArgs e)
         {
-            if (radioEkle.Checked)
+            if(EmptyOrNullChecker.Instance.NotNullableControls(this))
+                MetroFramework.MetroMessageBox.Show(this, "Lütfen alanları eksiksiz doldurunuz.", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            else if (radioEkle.Checked)
             {
                 string msg = ZimmetController.Instance.ZimmetEkle(new ZimmetGridView
                 {
@@ -81,9 +87,9 @@ namespace FixtureManagmentApp.Views
                     ZimmetAdet = (int.Parse)(txtAdet.Text),
                     ZimmetTarih = dateTarih.Value
                 });
-                MetroFramework.MetroMessageBox.Show(this, msg , "Zimmet İşlem Mesaj", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MetroFramework.MetroMessageBox.Show(this, msg, "Zimmet İşlem Mesaj", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            else
+            else if(radioCıkar.Checked)
             {
                 string msg = ZimmetController.Instance.ZimmetGuncelle(new ZimmetGridView
                 {
@@ -95,9 +101,17 @@ namespace FixtureManagmentApp.Views
                 });
                 MetroFramework.MetroMessageBox.Show(this, msg, "Zimmet İşlem Mesaj", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            int selectedRow = gridZimmet.CurrentRow.Index;     
+            /*int selectedRow = gridZimmet.CurrentRow.Index;
             GridGuncelle();
-            gridZimmet.Rows[selectedRow].Selected = true;
+            gridZimmet.Rows[selectedRow].Selected = true;*/
+        }
+
+        private void dateTarih_MouseDown_1(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                dateTarih.MaxDate = DateTime.Now;//tarih seçme için tıklandığında en fazla bugünün tarihini girebilir
+            }
         }
     }
 }

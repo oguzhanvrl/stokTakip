@@ -20,6 +20,7 @@ namespace FixtureManagmentApp.Views
         public Report()
         {
             InitializeComponent();
+            gridRapor.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             radioBolum.Checked = true;
         }
 
@@ -28,7 +29,6 @@ namespace FixtureManagmentApp.Views
             using (StokDBEntities stokDB = new StokDBEntities())
             {
                 bool bolumChecked = radioBolum.Checked ? true : false;
-                btnIslem.Text = bolumChecked ? "Bölüme Göre Rapor Çıktısı" : "Kişiye Göre Rapor Çıktısı";
 
                 if (bolumChecked)
                 {
@@ -46,32 +46,39 @@ namespace FixtureManagmentApp.Views
             }
         }
 
-        private void btnIslem_Click(object sender, EventArgs e)
+        private void btnIslem_Click_1(object sender, EventArgs e)
         {
-            DGVPrinter printer = new DGVPrinter();
-            printer.Title = "Zimmet Döküm Raporu";
-            printer.SubTitle = txtBolum.Text +" >> "+ cmbAra.SelectedItem.ToString();
-            printer.SubTitleFormatFlags = StringFormatFlags.LineLimit | StringFormatFlags.NoClip;
-            printer.PageNumbers = true;
-            printer.PageNumberInHeader = false;
-            printer.PorportionalColumns = true;
-            printer.HeaderCellAlignment = StringAlignment.Near;
-            printer.Footer = string.Format("Date: {0}", DateTime.Now.Date);
-            printer.FooterSpacing = 15;
-            printer.PrintDataGridView(gridRapor);
+            if (gridRapor.DataSource == null)
+            {
+                MetroFramework.MetroMessageBox.Show(this, "Lütfen raporlama için kişi/bölüm seçin.", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                DGVPrinter printer = new DGVPrinter();
+                printer.Title = "Zimmet Döküm Raporu";
+                printer.SubTitle = txtBolum.Text + " >> " + cmbAra.SelectedItem.ToString();
+                printer.SubTitleFormatFlags = StringFormatFlags.LineLimit | StringFormatFlags.NoClip;
+                printer.PageNumbers = true;
+                printer.PageNumberInHeader = false;
+                printer.PorportionalColumns = true;
+                printer.HeaderCellAlignment = StringAlignment.Near;
+                printer.Footer = string.Format("Date: {0}", DateTime.Now.Date);
+                printer.FooterSpacing = 15;
+                printer.PrintDataGridView(gridRapor);
+            }        
         }
 
-        private void cmbAra_SelectedIndexChanged(object sender, EventArgs e)
+        private void cmbAra_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             using (StokDBEntities stokDB = new StokDBEntities())
             {
-                if (cmbAra.SelectedIndex >=0)
+                if (cmbAra.SelectedIndex >= 0)
                 {
                     gridRapor.DataSource = null;
                     gridRapor.Refresh();
                     lblPer.Text = "Bölüm : " + txtBolum.Text + " - Kişi :";
                     if (!radioBolum.Checked)
-                    {               
+                    {
                         gridRapor.DataSource = (from zim in stokDB.Zimmets
                                                 join urn in stokDB.Urunlers on zim.urunID equals urn.urunID
                                                 join per in stokDB.Personels on zim.perID equals per.perID

@@ -64,7 +64,7 @@
             this.gridStok.EnableHeadersVisualStyles = false;
             this.gridStok.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.gridStok.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.gridStok.Location = new System.Drawing.Point(23, 78);
+            this.gridStok.Location = new System.Drawing.Point(381, 63);
             this.gridStok.MultiSelect = false;
             this.gridStok.Name = "gridStok";
             this.gridStok.ReadOnly = true;
@@ -87,7 +87,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1049, 695);
+            this.ClientSize = new System.Drawing.Size(1800, 800);
             this.Controls.Add(this.gridStok);
             this.Name = "Inventory";
             this.Style = MetroFramework.MetroColorStyle.White;

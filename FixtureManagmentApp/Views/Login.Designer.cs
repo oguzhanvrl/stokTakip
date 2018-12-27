@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.lbSifreyiGoster = new MetroFramework.Controls.MetroLabel();
-            this.lblHosgeldiniz = new System.Windows.Forms.Label();
             this.lblSifre = new MetroFramework.Controls.MetroLabel();
             this.lblKullaniciAdi = new MetroFramework.Controls.MetroLabel();
             this.txtSifre = new MetroFramework.Controls.MetroTextBox();
@@ -41,7 +40,7 @@
             // 
             this.lbSifreyiGoster.AutoSize = true;
             this.lbSifreyiGoster.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.lbSifreyiGoster.Location = new System.Drawing.Point(502, 317);
+            this.lbSifreyiGoster.Location = new System.Drawing.Point(567, 332);
             this.lbSifreyiGoster.Name = "lbSifreyiGoster";
             this.lbSifreyiGoster.Size = new System.Drawing.Size(26, 25);
             this.lbSifreyiGoster.TabIndex = 13;
@@ -49,22 +48,11 @@
             this.lbSifreyiGoster.MouseEnter += new System.EventHandler(this.lbSifreyiGoster_MouseEnter);
             this.lbSifreyiGoster.MouseLeave += new System.EventHandler(this.lbSifreyiGoster_MouseLeave);
             // 
-            // lblHosgeldiniz
-            // 
-            this.lblHosgeldiniz.AutoSize = true;
-            this.lblHosgeldiniz.Font = new System.Drawing.Font("Courier New", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHosgeldiniz.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.lblHosgeldiniz.Location = new System.Drawing.Point(118, 96);
-            this.lblHosgeldiniz.Name = "lblHosgeldiniz";
-            this.lblHosgeldiniz.Size = new System.Drawing.Size(565, 85);
-            this.lblHosgeldiniz.TabIndex = 12;
-            this.lblHosgeldiniz.Text = "Hoşgeldiniz";
-            // 
             // lblSifre
             // 
             this.lblSifre.AutoSize = true;
             this.lblSifre.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.lblSifre.Location = new System.Drawing.Point(121, 321);
+            this.lblSifre.Location = new System.Drawing.Point(186, 336);
             this.lblSifre.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSifre.Name = "lblSifre";
             this.lblSifre.Size = new System.Drawing.Size(46, 25);
@@ -75,7 +63,7 @@
             // 
             this.lblKullaniciAdi.AutoSize = true;
             this.lblKullaniciAdi.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.lblKullaniciAdi.Location = new System.Drawing.Point(121, 221);
+            this.lblKullaniciAdi.Location = new System.Drawing.Point(186, 236);
             this.lblKullaniciAdi.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblKullaniciAdi.Name = "lblKullaniciAdi";
             this.lblKullaniciAdi.Size = new System.Drawing.Size(107, 25);
@@ -99,7 +87,7 @@
             this.txtSifre.CustomButton.Visible = false;
             this.txtSifre.FontSize = MetroFramework.MetroTextBoxSize.Medium;
             this.txtSifre.Lines = new string[0];
-            this.txtSifre.Location = new System.Drawing.Point(271, 317);
+            this.txtSifre.Location = new System.Drawing.Point(336, 332);
             this.txtSifre.Margin = new System.Windows.Forms.Padding(4);
             this.txtSifre.MaxLength = 32767;
             this.txtSifre.Name = "txtSifre";
@@ -108,12 +96,13 @@
             this.txtSifre.SelectedText = "";
             this.txtSifre.SelectionLength = 0;
             this.txtSifre.SelectionStart = 0;
-            this.txtSifre.ShortcutsEnabled = true;
+            this.txtSifre.ShortcutsEnabled = false;
             this.txtSifre.Size = new System.Drawing.Size(224, 29);
             this.txtSifre.TabIndex = 9;
             this.txtSifre.UseSelectable = true;
             this.txtSifre.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtSifre.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.txtSifre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSifre_KeyPress);
             // 
             // txtKullaniciAdi
             // 
@@ -132,7 +121,7 @@
             this.txtKullaniciAdi.CustomButton.Visible = false;
             this.txtKullaniciAdi.FontSize = MetroFramework.MetroTextBoxSize.Medium;
             this.txtKullaniciAdi.Lines = new string[0];
-            this.txtKullaniciAdi.Location = new System.Drawing.Point(271, 221);
+            this.txtKullaniciAdi.Location = new System.Drawing.Point(336, 236);
             this.txtKullaniciAdi.Margin = new System.Windows.Forms.Padding(4);
             this.txtKullaniciAdi.MaxLength = 32767;
             this.txtKullaniciAdi.Name = "txtKullaniciAdi";
@@ -141,18 +130,19 @@
             this.txtKullaniciAdi.SelectedText = "";
             this.txtKullaniciAdi.SelectionLength = 0;
             this.txtKullaniciAdi.SelectionStart = 0;
-            this.txtKullaniciAdi.ShortcutsEnabled = true;
+            this.txtKullaniciAdi.ShortcutsEnabled = false;
             this.txtKullaniciAdi.Size = new System.Drawing.Size(224, 29);
             this.txtKullaniciAdi.TabIndex = 8;
             this.txtKullaniciAdi.UseSelectable = true;
             this.txtKullaniciAdi.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtKullaniciAdi.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.txtKullaniciAdi.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtKullaniciAdi_KeyPress);
             // 
             // btnGiris
             // 
             this.btnGiris.FontSize = MetroFramework.MetroButtonSize.Tall;
             this.btnGiris.FontWeight = MetroFramework.MetroButtonWeight.Regular;
-            this.btnGiris.Location = new System.Drawing.Point(196, 471);
+            this.btnGiris.Location = new System.Drawing.Point(271, 476);
             this.btnGiris.Margin = new System.Windows.Forms.Padding(4);
             this.btnGiris.Name = "btnGiris";
             this.btnGiris.Size = new System.Drawing.Size(250, 100);
@@ -164,9 +154,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 667);
+            this.ClientSize = new System.Drawing.Size(800, 600);
             this.Controls.Add(this.lbSifreyiGoster);
-            this.Controls.Add(this.lblHosgeldiniz);
             this.Controls.Add(this.lblSifre);
             this.Controls.Add(this.lblKullaniciAdi);
             this.Controls.Add(this.txtSifre);
@@ -174,7 +163,7 @@
             this.Controls.Add(this.btnGiris);
             this.KeyPreview = true;
             this.Name = "Login";
-            this.Text = "Login";
+            this.Text = "Giriş Yap";
             this.Load += new System.EventHandler(this.Login_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -184,7 +173,6 @@
         #endregion
 
         private MetroFramework.Controls.MetroLabel lbSifreyiGoster;
-        private System.Windows.Forms.Label lblHosgeldiniz;
         private MetroFramework.Controls.MetroLabel lblSifre;
         private MetroFramework.Controls.MetroLabel lblKullaniciAdi;
         private MetroFramework.Controls.MetroTextBox txtSifre;

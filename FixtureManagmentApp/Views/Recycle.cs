@@ -1,4 +1,5 @@
 ﻿using FixtureManagmentApp.Controllers;
+using FixtureManagmentApp.FormRestrictions;
 using FixtureManagmentApp.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -23,8 +24,10 @@ namespace FixtureManagmentApp.Views
             dateTarih.Enabled = false;
             radioGeriGonder.Checked = true;
             GridGuncelle();
+            gridAtik.Columns[gridAtik.ColumnCount - 1].Visible = false;
             gridAtik.AllowUserToResizeColumns = false;
-            gridAtik.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            gridAtik.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
         }
 
         private void gridAtik_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -48,30 +51,50 @@ namespace FixtureManagmentApp.Views
         public void GridGuncelle()
         {
             gridAtik.DataSource = AtikController.Instance.AtilGridListesi();
+            gridAtik.Columns[0].HeaderText = "Personel Adı";
+            gridAtik.Columns[1].HeaderText = "Ürün Adı";
+            gridAtik.Columns[2].HeaderText = "Atık Bilgisi";
+            gridAtik.Columns[3].HeaderText = "Atık Tarihi";
+            gridAtik.Columns[4].HeaderText = "Adet";
         }
 
-        private void btnIslem_Click(object sender, EventArgs e)
+        private void txtAdet_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (radioGeriGonder.Checked)
+            SpecialTextbox.Instance.ChangeCurrentTextbox(txtAdet);
+            if (SpecialTextbox.Instance.IsOverLimit(9) || SpecialTextbox.Instance.IsNotNumeric(e.KeyChar))
+                e.Handled = true;
+        }
+
+        private void txtNot_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            SpecialTextbox.Instance.ChangeCurrentTextbox(txtAdet);
+            e.Handled = SpecialTextbox.Instance.IsOverLimit(100);
+        }
+
+        private void btnIslem_Click_1(object sender, EventArgs e)
+        {
+            string msg = "";
+            if (EmptyOrNullChecker.Instance.NotNullableControls(this))
+                msg = "Lütfen alanları eksiksiz doldurunuz.";
+            else if (radioGeriGonder.Checked)
             {
-                string msg = AtikController.Instance.StokGeriGonder(new AtikGridView
+                msg = AtikController.Instance.StokGeriGonder(new AtikGridView
                 {
                     Urun = txtUrun.Text,
                     Adet = (int.Parse)(txtAdet.Text),
                     atikID = (int.Parse)(gridAtik.CurrentRow.Cells[5].Value.ToString())
-                });
-                MetroFramework.MetroMessageBox.Show(this, msg, "Atık İşlem Mesaj", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                });               
             }
-            else
+            else if(radioCıkar.Checked)
             {
-                string msg = AtikController.Instance.AtikYokEt(new AtikGridView
+                msg = AtikController.Instance.AtikYokEt(new AtikGridView
                 {
                     Adet = (int.Parse)(txtAdet.Text),
                     Not = txtNot.Text,
                     atikID = (int.Parse)(gridAtik.CurrentRow.Cells[5].Value.ToString())
                 });
-                MetroFramework.MetroMessageBox.Show(this, msg, "Atık İşlem Mesaj", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+            MetroFramework.MetroMessageBox.Show(this, msg, "Atık İşlem Mesaj", MessageBoxButtons.OK, MessageBoxIcon.Information);
             int selectedRow = gridAtik.CurrentRow.Index;
             GridGuncelle();
             gridAtik.Rows[selectedRow].Selected = true;

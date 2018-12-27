@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Globalization;
+using FixtureManagmentApp.FormRestrictions;
 
 namespace FixtureManagmentApp.Views
 {
@@ -22,7 +23,7 @@ namespace FixtureManagmentApp.Views
             radioEkle.Checked = true;
             GridGuncelle();
             gridPersonel.AllowUserToResizeColumns = false;
-            gridPersonel.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            gridPersonel.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             gridPersonel.Columns[3].ValueType = typeof(bool);
             gridPersonel.Columns[gridPersonel.ColumnCount - 1].Visible = false;
             this.ControlBox = false;
@@ -31,16 +32,14 @@ namespace FixtureManagmentApp.Views
         public void GridGuncelle()
         {
             gridPersonel.DataSource = PersonelController.Instance.PersonelGridListesi();
+            gridPersonel.Columns[0].HeaderText = "T.C. Kimlik No";
+            gridPersonel.Columns[1].HeaderText = "Ad Soyad";
+            gridPersonel.Columns[2].HeaderText = "Departman";
+            gridPersonel.Columns[3].HeaderText = "Kullanıcı Tipi";
+            gridPersonel.Columns[4].HeaderText = "Çalışıyor";
+            gridPersonel.Columns[5].HeaderText = "İşe Giriş Tarihi";
+            gridPersonel.Columns[6].HeaderText = "İşten Çıkış Tarihi";
         }
-
-        private void dateGiris_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                dateGiris.MaxDate = DateTime.Now;//tarih seçme için tıklandığında en fazla bugünün tarihini girebilir
-            }
-        }
-
       
         private void radioEkle_CheckedChanged(object sender, EventArgs e)
         {
@@ -64,58 +63,114 @@ namespace FixtureManagmentApp.Views
 
                 lblKul.Visible = true;
             }       
-               
-
         }
 
-        private void btnIslem_Click(object sender, EventArgs e)
+        private void gridPersonel_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if(e.RowIndex!=-1)
+            {
+                txtTC.Text = gridPersonel.CurrentRow.Cells[0].Value.ToString();
+                txtAdSoyad.Text = gridPersonel.CurrentRow.Cells[1].Value.ToString();
+                cmbDepartman.SelectedItem = gridPersonel.CurrentRow.Cells[2].Value.ToString();
+                cmbPerTip.SelectedItem = gridPersonel.CurrentRow.Cells[3].Value.ToString();
+                cbAktif.Checked = (bool)gridPersonel.CurrentRow.Cells[4].Value;
+                dateGiris.Value = (DateTime)gridPersonel.CurrentRow.Cells[5].Value;
+                //dateCikis.Value = (DateTime)gridPersonel.CurrentRow.Cells[6].Value;
+            }
+        }
+
+        private void txtTC_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            SpecialTextbox.Instance.ChangeCurrentTextbox(txtTC);
+            if(SpecialTextbox.Instance.IsOverLimit(11)|| SpecialTextbox.Instance.IsNotNumeric(e.KeyChar))
+                e.Handled = true;
+        }
+
+        private void txtKul_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            SpecialTextbox.Instance.ChangeCurrentTextbox(txtTC);
+            if (SpecialTextbox.Instance.IsOverLimit(20) || SpecialTextbox.Instance.IsIDPW(e.KeyChar))
+                e.Handled = true;
+        }
+
+        private void txtSifre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            SpecialTextbox.Instance.ChangeCurrentTextbox(txtSifre);
+            if (SpecialTextbox.Instance.IsOverLimit(20) || SpecialTextbox.Instance.IsIDPW(e.KeyChar))
+                e.Handled = true;
+        }
+
+        private void txtSifre_MouseEnter(object sender, EventArgs e)
+        {
+            txtSifre.PasswordChar = '\0';
+        }
+
+        private void txtSifre_MouseLeave(object sender, EventArgs e)
+        {
+            txtSifre.PasswordChar = '*';
+        }
+
+        private void txtAdSoyad_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            SpecialTextbox.Instance.ChangeCurrentTextbox(txtAdSoyad);
+            if (SpecialTextbox.Instance.IsOverLimit(50) || SpecialTextbox.Instance.IsNotLetter(e.KeyChar))
+                e.Handled = true;
+        }
+
+        private void btnIslem_Click_1(object sender, EventArgs e)
         {
             bool ekleChecked = radioEkle.Checked ? true : false;
-            if (ekleChecked)
+            if (EmptyOrNullChecker.Instance.NotNullableControls(this)||txtTC.Text.Length<11||txtKul.Text.Length<4||txtSifre.Text.Length<8)
+                MetroFramework.MetroMessageBox.Show(this, "Lütfen alanları eksiksiz doldurun.", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            else if (ekleChecked)
             {
                 try
                 {
                     using (StokDBEntities stokDB = new StokDBEntities())
                     {
-                        Personel per = new Personel();
-                        int maxPerID = stokDB.Personels.Max(p => p.perID);
-                        per.perID = maxPerID + 100;
+                        if (cmbDepartman.Enabled && cmbDepartman.SelectedIndex <= 1)
+                            MessageBox.Show("Bu bölümleri seçemezsiniz .");
+                        else
+                        {
+                            Personel per = new Personel();
+                            int maxPerID = stokDB.Personels.Max(p => p.perID);
+                            per.perID = maxPerID + 100;
 
-                        per.perIsim = txtAdSoyad.Text;
-                        per.perAktif = cbAktif.Checked;
-                        per.perTipID = PersonelController.Instance.KullaniTipIDBul(cmbPerTip.Text);
-                        per.bolumID = PersonelController.Instance.KullaniBolumIDBul(cmbDepartman.Text);
-                        per.perIseGiris = dateGiris.Value.Date;
-                        per.perTCNo = txtTC.Text;
+                            per.perIsim = txtAdSoyad.Text;
+                            per.perAktif = cbAktif.Checked;
+                            per.perTipID = PersonelController.Instance.KullaniTipIDBul(cmbPerTip.Text);
+                            per.bolumID = PersonelController.Instance.KullaniBolumIDBul(cmbDepartman.Text);
+                            per.perIseGiris = dateGiris.Value.Date;
+                            per.perTCNo = txtTC.Text;
 
-                        stokDB.Personels.Add(per);
-                        MessageBox.Show("Personel Kaydı Başarıyla Oluşturuldu");
+                            stokDB.Personels.Add(per);
+                            MessageBox.Show("Personel Kaydı Başarıyla Oluşturuldu");
 
-                        Kullanici kullanici = new Kullanici();
-                        kullanici.perID = per.perID;
-                        kullanici.kullaniciAdi = txtKul.Text;
-                        kullanici.kullaniciSifre = txtSifre.Text;
+                            Kullanici kullanici = new Kullanici();
+                            kullanici.perID = per.perID;
+                            kullanici.kullaniciAdi = txtKul.Text;
+                            kullanici.kullaniciSifre = txtSifre.Text;
 
-                        stokDB.Kullanicis.Add(kullanici);
-                        MessageBox.Show("Kullanıcı Giriş Kimliği Oluşturuldu");
+                            stokDB.Kullanicis.Add(kullanici);
+                            MessageBox.Show("Kullanıcı Giriş Kimliği Oluşturuldu");
 
-                        stokDB.SaveChanges();
+                            stokDB.SaveChanges();
+                        }
                     }
                 }
                 catch (Exception)
                 {
                     MessageBox.Show("Hata");
                 }
-                
             }
-            else
+            else if(!ekleChecked)
             {
                 try
                 {
                     using (StokDBEntities stokDB = new StokDBEntities())
                     {
                         Personel per = stokDB.Personels.FirstOrDefault(p => p.perTCNo == txtTC.Text);
-                        if (per!= null)
+                        if (per != null)
                         {
                             try
                             {
@@ -126,7 +181,7 @@ namespace FixtureManagmentApp.Views
                                 per.perAktif = cbAktif.Checked;
                                 per.perIseGiris = dateGiris.Value.Date;
 
-                                stokDB.SaveChanges();                               
+                                stokDB.SaveChanges();
                                 MessageBox.Show("Personel Başarıyla Güncellendi.");
                             }
                             catch (Exception)
@@ -150,24 +205,32 @@ namespace FixtureManagmentApp.Views
             gridPersonel.Rows[selectedRow].Selected = true;
         }
 
-        private void gridPersonel_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void dateGiris_MouseDown_1(object sender, MouseEventArgs e)
         {
-            if(e.RowIndex!=-1)
+            if (e.Button == MouseButtons.Left)
             {
-                txtTC.Text = gridPersonel.CurrentRow.Cells[0].Value.ToString();
-                txtAdSoyad.Text = gridPersonel.CurrentRow.Cells[1].Value.ToString();
-                cmbDepartman.SelectedItem = gridPersonel.CurrentRow.Cells[2].Value.ToString();
-                cmbPerTip.SelectedItem = gridPersonel.CurrentRow.Cells[3].Value.ToString();
-                cbAktif.Checked = (bool)gridPersonel.CurrentRow.Cells[4].Value;
-                dateGiris.Value = (DateTime)gridPersonel.CurrentRow.Cells[5].Value;
-                //dateCikis.Value = (DateTime)gridPersonel.CurrentRow.Cells[6].Value;
+                dateGiris.MaxDate = DateTime.Now;//tarih seçme için tıklandığında en fazla bugünün tarihini girebilir
             }
         }
 
-        private void cmbPerTip_SelectedIndexChanged(object sender, EventArgs e)
+        private void cmbPerTip_SelectedIndexChanged_1(object sender, EventArgs e)
         {
-            panel.Visible = false;
-            if (!cmbPerTip.SelectedItem.ToString().Contains("Personel") && radioEkle.Checked) panel.Visible = true;
+            if (cmbPerTip.SelectedIndex == 0 || cmbPerTip.SelectedIndex == 1)
+            {
+                panel.Visible = true;
+                cmbDepartman.Enabled = false;
+                cmbDepartman.SelectedIndex = cmbPerTip.SelectedIndex;
+            }
+            else if (cmbPerTip.SelectedIndex == 2)
+            {
+                panel.Visible = true;
+                cmbDepartman.Enabled = true;
+            }
+            else
+            {
+                panel.Visible = false;
+                cmbDepartman.Enabled = true;
+            }
         }
     }
 }

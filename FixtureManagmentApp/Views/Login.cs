@@ -1,4 +1,5 @@
 ﻿using FixtureManagmentApp.Controllers;
+using FixtureManagmentApp.FormRestrictions;
 using FixtureManagmentApp.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -47,13 +48,21 @@ namespace FixtureManagmentApp.Views
             {
                 MetroFramework.MetroMessageBox.Show(this, "Şifre 8 karakterden uzun olmalıdır.", "Şifre Hatası", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+            else if(txtKullaniciAdi.Text.Length<4)
+            {
+                MetroFramework.MetroMessageBox.Show(this, "Kullanıcı adı 4 karakterden uzun olmalıdır.", "Kullanıcı Adı Hatası", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else if(EmptyOrNullChecker.Instance.NotNullableControls(this))
+            {
+                MetroFramework.MetroMessageBox.Show(this, "Kullanıcı adı veya şifre boş.", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
             else if (PersonelController.Instance.GirisYap(kullanici))
             {
                 MainScreen main = new MainScreen();
                 this.Hide();
                 main.Show();               
             }
-            else MetroFramework.MetroMessageBox.Show(this, "KullanıcıAdı veya Şifreniz yanlış!", "Böyle Bir Kullanıcı Yok", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else MetroFramework.MetroMessageBox.Show(this, "Kullanıcı adı veya şifreniz yanlış!", "Böyle Bir Kullanıcı Yok", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void lbSifreyiGoster_MouseEnter(object sender, EventArgs e)
@@ -66,5 +75,18 @@ namespace FixtureManagmentApp.Views
             txtSifre.PasswordChar = '*';
         }
 
+        private void txtKullaniciAdi_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            SpecialTextbox.Instance.ChangeCurrentTextbox(txtKullaniciAdi);
+            if (SpecialTextbox.Instance.IsOverLimit(20)|| SpecialTextbox.Instance.IsIDPW(e.KeyChar))
+            e.Handled = true;
+        }
+
+        private void txtSifre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            SpecialTextbox.Instance.ChangeCurrentTextbox(txtSifre);
+            if (SpecialTextbox.Instance.IsOverLimit(20) || SpecialTextbox.Instance.IsIDPW(e.KeyChar))
+                e.Handled = true;
+        }
     }
 }

@@ -56,6 +56,17 @@ namespace FixtureManagmentApp.FormRestrictions
             bool isUnderLimit = mtbox.Text.Length <= limit ? true : false;
             return isUnderLimit;
         }
+
+        public bool IsNotLetter(char key)
+        {
+            bool isNotLetter = !char.IsLetter(key) && key != '\b' && key != ' ' ? true : false;
+            return isNotLetter;
+        }
+
+        public bool IsIDPW(char key)//sadece numara,harf ve silme tuşu
+        {
+            return !(char.IsNumber(key) || char.IsLetter(key) || key == '\b');
+        }
     }
 }
 

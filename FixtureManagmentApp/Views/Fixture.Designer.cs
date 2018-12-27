@@ -34,15 +34,15 @@
             this.gridZimmet = new MetroFramework.Controls.MetroGrid();
             this.radioCıkar = new MetroFramework.Controls.MetroRadioButton();
             this.radioEkle = new MetroFramework.Controls.MetroRadioButton();
+            this.lblPer = new MetroFramework.Controls.MetroLabel();
+            this.cmbPer = new MetroFramework.Controls.MetroComboBox();
             this.txtAdet = new MetroFramework.Controls.MetroTextBox();
-            this.btnIslem = new MetroFramework.Controls.MetroButton();
             this.lblTarih = new MetroFramework.Controls.MetroLabel();
             this.dateTarih = new MetroFramework.Controls.MetroDateTime();
             this.lblAdet = new MetroFramework.Controls.MetroLabel();
             this.lblUrun = new MetroFramework.Controls.MetroLabel();
             this.cmbUrunler = new MetroFramework.Controls.MetroComboBox();
-            this.lblPer = new MetroFramework.Controls.MetroLabel();
-            this.cmbPer = new MetroFramework.Controls.MetroComboBox();
+            this.btnIslem = new MetroFramework.Controls.MetroButton();
             ((System.ComponentModel.ISupportInitialize)(this.gridZimmet)).BeginInit();
             this.SuspendLayout();
             // 
@@ -75,7 +75,7 @@
             this.gridZimmet.EnableHeadersVisualStyles = false;
             this.gridZimmet.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.gridZimmet.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.gridZimmet.Location = new System.Drawing.Point(23, 88);
+            this.gridZimmet.Location = new System.Drawing.Point(378, 409);
             this.gridZimmet.MultiSelect = false;
             this.gridZimmet.Name = "gridZimmet";
             this.gridZimmet.ReadOnly = true;
@@ -91,7 +91,7 @@
             this.gridZimmet.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.gridZimmet.RowTemplate.Height = 24;
             this.gridZimmet.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridZimmet.Size = new System.Drawing.Size(1022, 504);
+            this.gridZimmet.Size = new System.Drawing.Size(1022, 389);
             this.gridZimmet.TabIndex = 55;
             this.gridZimmet.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridPer_CellClick);
             // 
@@ -118,6 +118,25 @@
             this.radioEkle.UseSelectable = true;
             this.radioEkle.CheckedChanged += new System.EventHandler(this.radioEkle_CheckedChanged);
             // 
+            // lblPer
+            // 
+            this.lblPer.AutoSize = true;
+            this.lblPer.Location = new System.Drawing.Point(451, 141);
+            this.lblPer.Name = "lblPer";
+            this.lblPer.Size = new System.Drawing.Size(78, 20);
+            this.lblPer.TabIndex = 87;
+            this.lblPer.Text = "Personeller";
+            // 
+            // cmbPer
+            // 
+            this.cmbPer.FormattingEnabled = true;
+            this.cmbPer.ItemHeight = 24;
+            this.cmbPer.Location = new System.Drawing.Point(577, 131);
+            this.cmbPer.Name = "cmbPer";
+            this.cmbPer.Size = new System.Drawing.Size(224, 30);
+            this.cmbPer.TabIndex = 86;
+            this.cmbPer.UseSelectable = true;
+            // 
             // txtAdet
             // 
             // 
@@ -133,7 +152,7 @@
             this.txtAdet.CustomButton.UseSelectable = true;
             this.txtAdet.CustomButton.Visible = false;
             this.txtAdet.Lines = new string[0];
-            this.txtAdet.Location = new System.Drawing.Point(1129, 503);
+            this.txtAdet.Location = new System.Drawing.Point(1189, 236);
             this.txtAdet.MaxLength = 32767;
             this.txtAdet.Name = "txtAdet";
             this.txtAdet.PasswordChar = '\0';
@@ -141,103 +160,85 @@
             this.txtAdet.SelectedText = "";
             this.txtAdet.SelectionLength = 0;
             this.txtAdet.SelectionStart = 0;
-            this.txtAdet.ShortcutsEnabled = true;
+            this.txtAdet.ShortcutsEnabled = false;
             this.txtAdet.Size = new System.Drawing.Size(153, 30);
-            this.txtAdet.TabIndex = 74;
+            this.txtAdet.TabIndex = 85;
             this.txtAdet.UseSelectable = true;
             this.txtAdet.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtAdet.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
-            // btnIslem
-            // 
-            this.btnIslem.FontSize = MetroFramework.MetroButtonSize.Tall;
-            this.btnIslem.Location = new System.Drawing.Point(1115, 554);
-            this.btnIslem.Name = "btnIslem";
-            this.btnIslem.Size = new System.Drawing.Size(240, 111);
-            this.btnIslem.TabIndex = 71;
-            this.btnIslem.Text = "Ekle";
-            this.btnIslem.UseSelectable = true;
-            this.btnIslem.Click += new System.EventHandler(this.btnIslem_Click);
+            this.txtAdet.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAdet_KeyPress);
             // 
             // lblTarih
             // 
             this.lblTarih.AutoSize = true;
-            this.lblTarih.Location = new System.Drawing.Point(1129, 370);
+            this.lblTarih.Location = new System.Drawing.Point(970, 141);
             this.lblTarih.Name = "lblTarih";
             this.lblTarih.Size = new System.Drawing.Size(136, 20);
-            this.lblTarih.TabIndex = 70;
+            this.lblTarih.TabIndex = 83;
             this.lblTarih.Text = "Zimmete Alma Tarihi";
             // 
             // dateTarih
             // 
             this.dateTarih.CustomFormat = "dd.MM.yyyy";
             this.dateTarih.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTarih.Location = new System.Drawing.Point(1115, 394);
+            this.dateTarih.Location = new System.Drawing.Point(1189, 131);
             this.dateTarih.Margin = new System.Windows.Forms.Padding(4);
             this.dateTarih.MaxDate = new System.DateTime(2070, 1, 1, 0, 0, 0, 0);
             this.dateTarih.MinDate = new System.DateTime(1970, 1, 1, 0, 0, 0, 0);
             this.dateTarih.MinimumSize = new System.Drawing.Size(0, 30);
             this.dateTarih.Name = "dateTarih";
             this.dateTarih.Size = new System.Drawing.Size(224, 30);
-            this.dateTarih.TabIndex = 69;
-            this.dateTarih.MouseDown += new System.Windows.Forms.MouseEventHandler(this.dateTarih_MouseDown);
+            this.dateTarih.TabIndex = 82;
+            this.dateTarih.MouseDown += new System.Windows.Forms.MouseEventHandler(this.dateTarih_MouseDown_1);
             // 
             // lblAdet
             // 
             this.lblAdet.AutoSize = true;
-            this.lblAdet.Location = new System.Drawing.Point(1129, 470);
+            this.lblAdet.Location = new System.Drawing.Point(970, 246);
             this.lblAdet.Name = "lblAdet";
             this.lblAdet.Size = new System.Drawing.Size(153, 20);
-            this.lblAdet.TabIndex = 68;
+            this.lblAdet.TabIndex = 81;
             this.lblAdet.Text = "Zimmete Alınacak Adet";
             // 
             // lblUrun
             // 
             this.lblUrun.AutoSize = true;
-            this.lblUrun.Location = new System.Drawing.Point(1131, 258);
+            this.lblUrun.Location = new System.Drawing.Point(451, 246);
             this.lblUrun.Name = "lblUrun";
             this.lblUrun.Size = new System.Drawing.Size(56, 20);
-            this.lblUrun.TabIndex = 66;
+            this.lblUrun.TabIndex = 80;
             this.lblUrun.Text = "Urunler";
             // 
             // cmbUrunler
             // 
             this.cmbUrunler.FormattingEnabled = true;
             this.cmbUrunler.ItemHeight = 24;
-            this.cmbUrunler.Location = new System.Drawing.Point(1115, 286);
+            this.cmbUrunler.Location = new System.Drawing.Point(577, 236);
             this.cmbUrunler.Name = "cmbUrunler";
             this.cmbUrunler.Size = new System.Drawing.Size(224, 30);
-            this.cmbUrunler.TabIndex = 64;
+            this.cmbUrunler.TabIndex = 79;
             this.cmbUrunler.UseSelectable = true;
             // 
-            // lblPer
+            // btnIslem
             // 
-            this.lblPer.AutoSize = true;
-            this.lblPer.Location = new System.Drawing.Point(1129, 157);
-            this.lblPer.Name = "lblPer";
-            this.lblPer.Size = new System.Drawing.Size(78, 20);
-            this.lblPer.TabIndex = 78;
-            this.lblPer.Text = "Personeller";
-            // 
-            // cmbPer
-            // 
-            this.cmbPer.FormattingEnabled = true;
-            this.cmbPer.ItemHeight = 24;
-            this.cmbPer.Location = new System.Drawing.Point(1115, 184);
-            this.cmbPer.Name = "cmbPer";
-            this.cmbPer.Size = new System.Drawing.Size(224, 30);
-            this.cmbPer.TabIndex = 77;
-            this.cmbPer.UseSelectable = true;
+            this.btnIslem.FontSize = MetroFramework.MetroButtonSize.Tall;
+            this.btnIslem.Location = new System.Drawing.Point(810, 323);
+            this.btnIslem.Name = "btnIslem";
+            this.btnIslem.Size = new System.Drawing.Size(159, 56);
+            this.btnIslem.TabIndex = 88;
+            this.btnIslem.Text = "Ekle";
+            this.btnIslem.UseSelectable = true;
+            this.btnIslem.Click += new System.EventHandler(this.btnIslem_Click_1);
             // 
             // Fixture
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1387, 721);
+            this.ClientSize = new System.Drawing.Size(1804, 821);
+            this.Controls.Add(this.btnIslem);
             this.Controls.Add(this.lblPer);
             this.Controls.Add(this.cmbPer);
             this.Controls.Add(this.txtAdet);
-            this.Controls.Add(this.btnIslem);
             this.Controls.Add(this.lblTarih);
             this.Controls.Add(this.dateTarih);
             this.Controls.Add(this.lblAdet);
@@ -258,14 +259,14 @@
         private MetroFramework.Controls.MetroGrid gridZimmet;
         private MetroFramework.Controls.MetroRadioButton radioCıkar;
         private MetroFramework.Controls.MetroRadioButton radioEkle;
+        private MetroFramework.Controls.MetroLabel lblPer;
+        private MetroFramework.Controls.MetroComboBox cmbPer;
         private MetroFramework.Controls.MetroTextBox txtAdet;
-        private MetroFramework.Controls.MetroButton btnIslem;
         private MetroFramework.Controls.MetroLabel lblTarih;
         private MetroFramework.Controls.MetroDateTime dateTarih;
         private MetroFramework.Controls.MetroLabel lblAdet;
         private MetroFramework.Controls.MetroLabel lblUrun;
         private MetroFramework.Controls.MetroComboBox cmbUrunler;
-        private MetroFramework.Controls.MetroLabel lblPer;
-        private MetroFramework.Controls.MetroComboBox cmbPer;
+        private MetroFramework.Controls.MetroButton btnIslem;
     }
 }

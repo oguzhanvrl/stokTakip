@@ -71,10 +71,7 @@ namespace FixtureManagmentApp.FormRestrictions
                     return new string[1] { "Rapor" };
                 default:
                     return null;
-            }
-            
+            }            
         }
-       
-
     }
 }

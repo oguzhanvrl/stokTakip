@@ -20,8 +20,12 @@ namespace FixtureManagmentApp.Views
             InitializeComponent();
             this.ControlBox = false;
             gridStok.DataSource = StokController.Instance.StokGridListesi();
+            gridStok.Columns[0].HeaderText = "Ürün Adı";
+            gridStok.Columns[1].HeaderText = "Kategori";
+            gridStok.Columns[2].HeaderText = "Ürün Özellikleri";
+            gridStok.Columns[3].HeaderText = "Adet";
             gridStok.AllowUserToResizeColumns = false;
-            gridStok.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            gridStok.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
             /*
              *   int selectedRow = gridZimmet.CurrentRow.Index;     
